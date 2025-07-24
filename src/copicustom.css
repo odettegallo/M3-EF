@@ -1,0 +1,62 @@
+
+    .contact-section {
+        background-color: #f8f9fa; /* Un color de fondo suave */
+        padding: 60px 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .contact-content h2 {
+        color: #343a40; /* Un color oscuro para el título */
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    .contact-content p {
+        color: #6c757d; /* Un color gris para el párrafo */
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .contact-button {
+        display: inline-block;
+        background-color: #6200ff; /* Un azul vibrante */
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    }
+
+    .contact-button:hover {
+        background-color: #0056b3; /* Un azul más oscuro al pasar el ratón */
+    }
+
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+        .contact-content h2 {
+            font-size: 2em;
+        }
+
+        .contact-content p {
+            font-size: 1em;
+        }
+
+        .contact-button {
+            padding: 12px 25px;
+            font-size: 1em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-content h2 {
+            font-size: 1.8em;
+        }
+    }
