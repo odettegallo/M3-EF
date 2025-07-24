@@ -1,0 +1,24 @@
+{
+  "name": "m3-ef",
+  "version": "1.0.0",
+  "description": "Evaluación Final   MÓDULO: DESARROLLO DE LA INTERFAZ  DE USUARIO WEB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odettegallo/M3-EF.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/odettegallo/M3-EF/issues"
+  },
+  "homepage": "https://github.com/odettegallo/M3-EF#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  }
+}
