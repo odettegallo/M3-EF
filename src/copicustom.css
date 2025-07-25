@@ -1,62 +1,126 @@
-
-    .contact-section {
-        background-color: #f8f9fa; /* Un color de fondo suave */
-        padding: 60px 20px;
-        text-align: center;
-        font-family: Arial, sans-serif;
+    
+    .navbar-nav .nav-link {
+        transition: color 0.3s ease;
+        background-color: transparent;
+    }
+    .navbar-nav .nav-link:hover {
+        color: var(--bs-primary) !important; /* Adjust if you're using a different primary color */
     }
 
-    .contact-content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+   body, html {
+    margin: 0;
+    padding: 0;
+    /* Esto es crucial para que la sección pueda ocupar el 100% de la altura de la ventana */
+    height: 100%;
+    /* Opcional: Para evitar barras de desplazamiento no deseadas si no hay otro contenido */
+    overflow-x: hidden;
+}
 
+.contact-section {
+    /* Ocupa el 100% del ancho y alto de la ventana visible (viewport) */
+    width: 100vw;
+    height: 100vh; /* `vh` es "viewport height" */
+
+    position: relative; /* Necesario para el pseudo-elemento de overlay */
+    
+    /* Configuración de la imagen de fondo */
+    background-image: url('https://ozma.io/assets/images/digital-solutions-meaning/digital-solutions-meaning-1.2.webp');
+    background-size: cover; /* Asegura que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+
+    /* Centrar el contenido vertical y horizontalmente usando Flexbox */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white; /* Cambiamos el color de texto a blanco para contrastar con la imagen de fondo */
+    
+    /* Añadimos una sombra de texto para mejorar la legibilidad sobre la imagen */
+    text-shadow: 1px 1px 4px rgba(233, 227, 227, 0.7);
+
+    /* Opcional: Overlay semitransparente sobre la imagen de fondo */
+    /* Esto ayuda a que el texto sea más legible sobre imágenes ocupadas */
+    /* Puedes ajustar el color y la opacidad */
+}
+
+/* Pseudo-elemento para el overlay semitransparente sobre la imagen de fondo */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Color negro con 40% de opacidad. Ajusta rgba(0,0,0,0.4) según tus preferencias */
+    background-color: rgba(116, 154, 163, 0.768); 
+    z-index: 1; /* Asegura que el overlay esté encima de la imagen pero debajo del contenido */
+}
+
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 20px; /* Margen horizontal para evitar que el contenido toque los bordes en pantallas pequeñas */
+    padding: 20px; /* Padding interno para el contenido */
+    position: relative; /* Asegura que el contenido esté sobre el overlay */
+    z-index: 2; /* Mayor que el z-index del pseudo-elemento */
+    background-color: rgba(255, 255, 255, 0.35); /* Ligero fondo para el contenido, casi transparente */
+    border-radius: 10px; /* Bordes redondeados para el contenedor de contenido */
+}
+
+.contact-content h2 {
+    color: rgb(4, 20, 43); /* Cambiamos a blanco para mejor contraste */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact-content p {
+    color: #2f0644; /* Un gris más claro para el párrafo */
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #6200ff; /* Un azul vibrante */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    border: 2px solid #6200ff; /* Borde del mismo color */
+}
+
+.contact-button:hover {
+    background-color: #4a00cb; /* Un azul un poco más oscuro al pasar el ratón */
+    border-color: #4a00cb; /* Cambiar el color del borde al hacer hover */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
     .contact-content h2 {
-        color: #343a40; /* Un color oscuro para el título */
-        font-size: 2.5em;
-        margin-bottom: 20px;
+        font-size: 2em;
     }
 
     .contact-content p {
-        color: #6c757d; /* Un color gris para el párrafo */
-        font-size: 1.1em;
-        line-height: 1.6;
-        margin-bottom: 30px;
+        font-size: 1em;
     }
 
     .contact-button {
-        display: inline-block;
-        background-color: #6200ff; /* Un azul vibrante */
-        color: white;
-        padding: 15px 30px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1.1em;
-        transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+        padding: 12px 25px;
+        font-size: 1em;
     }
+}
 
-    .contact-button:hover {
-        background-color: #0056b3; /* Un azul más oscuro al pasar el ratón */
+@media (max-width: 480px) {
+    .contact-content h2 {
+        font-size: 1.8em;
     }
-
-    /* Media queries para responsividad */
-    @media (max-width: 768px) {
-        .contact-content h2 {
-            font-size: 2em;
-        }
-
-        .contact-content p {
-            font-size: 1em;
-        }
-
-        .contact-button {
-            padding: 12px 25px;
-            font-size: 1em;
-        }
+    .contact-content {
+        padding: 15px;
     }
-
-    @media (max-width: 480px) {
-        .contact-content h2 {
-            font-size: 1.8em;
-        }
-    }
+}
