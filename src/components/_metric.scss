@@ -1,0 +1,205 @@
+@use "../abstracts/variables" as *;
+@use "../base/estilo";
+
+.metrics {
+    padding: 80px 20px; /* Mantiene el espaciado vertical general */
+    background: $metrics-bg-gradient; /* Gradiente de fondo fresco y energético usando variable */
+    font-family: $metrics-general-font; /* Fuente moderna y limpia para texto general usando variable */
+    text-align: center;
+    overflow: hidden; /* Asegura que no haya desbordamiento de contenido */
+
+    /* --- Estilos del Encabezado de la Sección --- */
+    &-header {
+        margin-bottom: 60px; /* Espaciado entre el encabezado y las tarjetas de métricas */
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .metrics-title {
+            font-family: $metrics-title-font; /* Fuente impactante para el título principal usando variable */
+            font-size: clamp(2.2rem, 4vw + 0.5rem, 4.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
+            color: $metrics-title-color; /* Color oscuro y fuerte para contraste usando variable */
+            margin-bottom: 20px;
+            font-weight: 900; /* Extra bold para énfasis */
+            line-height: 1.2;
+            letter-spacing: -0.8px; /* Espaciado ligeramente más estrecho para un look moderno */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Sombra de texto sutil */
+        }
+
+        .metrics-subtitle {
+            font-family: $metrics-general-font; // Usamos la fuente general
+            font-size: 1.3rem; /* Tamaño de fuente responsivo (corregí "2 rem" a "2rem" y un valor más común) */
+            color: $metrics-subtitle-color; /* Gris oscuro más suave usando variable */
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /* --- Contenedor de la Cuadrícula de Métricas --- */
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño de cuadrícula responsivo */
+        gap: 30px; /* Espacio entre tarjetas, manteniendo el tamaño */
+        max-width: 1200px; /* Ancho máximo para la cuadrícula */
+        margin: 0 auto; /* Centra la cuadrícula */
+        padding: 0 20px;
+    }
+}
+
+/* --- Estilos de la Tarjeta de Métrica --- */
+.metric-card {
+    background-color: $metrics-card-bg; /* Fondo blanco limpio usando variable */
+    padding: 35px; /* Amplio padding para mantener el tamaño */
+    border-radius: 20px; /* Bordes más redondeados para un look juvenil */
+    box-shadow: $metrics-card-shadow; /* Sombra pronunciada y suave usando variable */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* Transición suave y atractiva para los efectos de hover */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden; /* Importante para el efecto de fondo dinámico */
+    border: $metrics-card-border; /* Borde blanco sutil para un borde limpio usando variable */
+
+    &:hover {
+        transform: translateY(-10px) scale(1.03); /* Elevación más notoria y ligera escala */
+        box-shadow: $metrics-card-hover-shadow; /* Sombra más profunda en hover usando variable */
+        z-index: 1; /* Asegura que la tarjeta al pasar el ratón esté encima */
+    }
+
+    /* Efecto de fondo dinámico en hover (Onda/Salpicadura) */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $metrics-card-hover-gradient; /* Gradiente energético para el efecto hover usando variable */
+        border-radius: 20px;
+        z-index: -1; /* Detrás del contenido */
+        transform: scale(0); /* Oculto inicialmente */
+        opacity: 0;
+        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out; /* Transición elástica */
+    }
+
+    &:hover::before {
+        transform: scale(1.1); /* Se expande ligeramente más allá de la tarjeta para un efecto de sangrado completo */
+        opacity: 1;
+    }
+
+    /* --- Números de Métrica (h3) --- */
+    h3 {
+        font-family: $metrics-title-font; // Usamos la fuente de título para el número
+        font-size: clamp(2.8rem, 5vw + 0.5rem, 5rem); /* Grande, impactante y responsivo (ajusté "0.8 rem" a valores más grandes) */
+        color: $metric-number-color; /* Azul-púrpura vibrante usando variable */
+        margin-bottom: 12px;
+        font-weight: 900; /* Extra bold */
+        position: relative;
+        z-index: 2; /* Asegura que el texto esté por encima del pseudo-elemento */
+        transition: color 0.3s ease;
+    }
+
+    &:hover h3 {
+        color: $text-white; /* Blanco en hover para un contraste marcado */
+    }
+
+    /* --- Título de Métrica (p.metric-title) --- */
+    .metric-title {
+        font-family: $metrics-general-font;
+        font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.3rem); /* Tamaño responsivo y legible */
+        color: $metric-content-color; /* Gris oscuro para buena legibilidad usando variable */
+        font-weight: 700; /* Negrita */
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+        transition: color 0.3s ease;
+    }
+
+    &:hover .metric-title {
+        color: $text-white; /* Blanco en hover */
+    }
+
+    /* --- Descripción de Métrica (p.metric-description) --- */
+    .metric-description {
+        font-family: $metrics-general-font;
+        font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem); /* Descripción responsiva y clara */
+        color: $metric-description-color; /* Gris más suave usando variable */
+        line-height: 1.6;
+        margin-bottom: 0;
+        position: relative;
+        z-index: 2;
+        transition: color 0.3s ease;
+    }
+
+    &:hover .metric-description {
+        color: rgba($text-white, 0.9); /* Blanco ligeramente transparente en hover */
+    }
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 992px) {
+    .metrics {
+        &-header {
+            margin-bottom: 40px;
+        }
+        &-grid {
+            gap: 25px;
+        }
+    }
+    .metric-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .metrics {
+        padding: 60px 15px;
+
+        &-header {
+            .metrics-title {
+                font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3.2rem);
+            }
+            .metrics-subtitle {
+                font-size: clamp(0.95rem, 1.5vw + 0.2rem, 1.2rem);
+            }
+        }
+        &-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    }
+    .metric-card {
+        padding: 25px;
+        h3 {
+            font-size: clamp(2.5rem, 4vw + 0.5rem, 3.8rem);
+        }
+        .metric-title {
+            font-size: clamp(1rem, 1.3vw + 0.1rem, 1.2rem);
+        }
+        .metric-description {
+            font-size: clamp(0.8rem, 1vw + 0.1rem, 0.95rem);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .metrics {
+        padding: 40px 10px;
+        &-grid {
+            grid-template-columns: 1fr; /* Columna única en pantallas muy pequeñas */
+            max-width: 400px; /* Limita el ancho para evitar estiramiento */
+            margin: 0 auto;
+        }
+    }
+    .metric-card {
+        padding: 20px;
+        border-radius: 15px;
+        h3 {
+            font-size: clamp(2.2rem, 3.5vw + 0.5rem, 3.5rem);
+        }
+    }
+}
