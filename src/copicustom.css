@@ -5,6 +5,8 @@ body {
     padding-top: 90px; /* Ajusta este valor si la altura de tu navbar varía */
 }
 
+
+
 .navbar {
     /* Fondo con gradiente fresco y juvenil */
     background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%); /* Verde menta a azul vibrante */
