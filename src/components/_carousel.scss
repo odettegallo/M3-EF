@@ -1,0 +1,141 @@
+@use "../abstracts/variables" as *;
+
+.carousel-section {
+    width: 100%;
+    height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
+    overflow: hidden; /* Importante para evitar el desbordamiento de la imagen */
+    position: relative; /* Necesario para el posicionamiento absoluto de las superposiciones */
+}
+
+/* Asegura que el carrusel, inner y los items llenen su padre */
+#carouselExampleAutoplaying,
+.carousel-inner,
+.carousel-item {
+    width: 100%;
+    height: 100%; 
+}
+
+/* Estilos para las imágenes del carrusel */
+.carousel-img {
+    width: 100%;
+    height: 100%; /* Las imágenes deben llenar el item */
+    object-fit: cover; /* Recorta las imágenes para cubrir el área sin distorsión */
+    filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al color */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Estilos para el contenedor de contenido dentro del carrusel (texto y botón) */
+.carousel-caption {
+    /* El posicionamiento predeterminado de Bootstrap es absoluto. Ajustar su tamaño y centrado */
+    position: absolute; /* Asegura que se superponga */
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Relleno general para el contenido */
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+}
+
+/* Estilos específicos para el div que contiene el texto y el botón */
+.contact-content-carousel {
+    max-width: 750px; /* Ancho máximo para legibilidad */
+    padding: 35px 45px; /* Más padding para un look más "premium" */
+    border-radius: 20px; /* Bordes más redondeados para un toque juvenil */
+    background-color: $carousel-overlay-bg; /* Fondo blanco con alta opacidad usando variable */
+    box-shadow: $carousel-content-shadow; /* Sombra más pronunciada y suave usando variable */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque "glassmorphism" */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
+    color: $carousel-text-dark; /* Color de texto oscuro para contraste usando variable */
+    animation: fadeInScale 0.8s ease-out forwards; /* Animación de entrada */
+
+    h2 {
+        color: $carousel-heading-color; /* Color más oscuro para el título principal usando variable */
+        font-size: 2.8em;
+        margin-bottom: 20px;
+        font-weight: bold;
+        line-height: 1.2;
+        font-family: $logo-font; // Usamos la fuente del logo para el título
+    }
+
+    p {
+        color: $carousel-paragraph-color; /* Color gris para el párrafo usando variable */
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        font-family: $link-font; // Usamos la fuente del link para el párrafo
+    }
+}
+
+.contact-button-carousel {
+    display: inline-block;
+    background-color: $carousel-button-color; /* Tu color vibrante usando variable */
+    color: $text-white; // Color de texto blanco del navbar
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Elimina cualquier borde predeterminado */
+    font-family: $link-font; // Usamos la fuente del link para el botón
+
+    &:hover {
+        background-color: $carousel-button-hover-color; /* Azul más oscuro al pasar el ratón usando variable */
+        transform: translateY(-2px); /* Ligero efecto de elevación al pasar el ratón */
+    }
+}
+
+// Media Queries para Responsividad
+@media (max-width: 992px) {
+    .contact-content-carousel {
+        h2 {
+            font-size: 2.2em;
+        }
+        p {
+            font-size: 1.1em;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 15px;
+    }
+    .contact-content-carousel {
+        padding: 25px;
+        max-width: 90%; /* Permite que ocupe más espacio en pantallas más pequeñas */
+        h2 {
+            font-size: 1.8em;
+        }
+        p {
+            font-size: 1em;
+        }
+    }
+    .contact-button-carousel {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .carousel-img {
+        filter: brightness(50%); /* Oscurece la imagen aún más para un mejor contraste en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-content-carousel {
+        padding: 20px;
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+    }
+    .contact-button-carousel {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

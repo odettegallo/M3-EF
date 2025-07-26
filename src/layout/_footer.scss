@@ -1,14 +1,4 @@
-// Importa las fuentes si no lo haces globalmente
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-
-// Variables de colores (reutilizadas del navbar para consistencia)
-$navbar-bg-gradient: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
-$navbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-$text-white: #ffffff;
-$text-dark: #000000;
-$logo-font: 'Montserrat', sans-serif; // Usaremos esta para los títulos del footer
-$link-font: 'Montserrat', sans-serif; // Usaremos esta para el texto de copyright
-$link-color: rgba(255, 255, 255, 0.9); // Color principal para los textos del footer
+@use "../abstracts/variables" as *;
 
 .footer {
     // Aplicamos el mismo gradiente y sombra que el navbar

@@ -1,18 +1,4 @@
-
-
-// Importa las fuentes si no lo haces globalmente
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-
-// Variables de colores (opcional pero recomendado para consistencia)
-$navbar-bg-gradient: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
-$navbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-$text-white: #ffffff;
-$text-dark: #000000;
-$logo-font: 'Montserrat', sans-serif;
-$link-font: 'Montserrat', sans-serif;
-$link-color: rgba(255, 255, 255, 0.9);
-$toggler-border-color: rgba(255, 255, 255, 0.6);
-$toggler-icon-color: rgba(255, 255, 255, 0.9);
+@use "../abstracts/variables" as *;
 
 .navbar {
     background: $navbar-bg-gradient;
