@@ -7,121 +7,145 @@
         color: var(--bs-primary) !important; /* Adjust if you're using a different primary color */
     }
 
-   body, html {
+ /* General reset for body/html to allow full viewport height */
+body, html {
     margin: 0;
     padding: 0;
-    /* Esto es crucial para que la sección pueda ocupar el 100% de la altura de la ventana */
     height: 100%;
-    /* Opcional: Para evitar barras de desplazamiento no deseadas si no hay otro contenido */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevents unwanted horizontal scroll */
 }
 
-.contact-section {
-    /* Ocupa el 100% del ancho y alto de la ventana visible (viewport) */
+/* Styles for the entire carousel section */
+.carousel-section {
     width: 100vw;
-    height: 100vh; /* `vh` es "viewport height" */
-
-    position: relative; /* Necesario para el pseudo-elemento de overlay */
+    height: 100vh; /* Makes the carousel take up the full viewport height */
+    overflow: hidden; /* Important to prevent image overflow */
+    position: relative; /* Needed for absolute positioning of overlays if any */
     
-    /* Configuración de la imagen de fondo */
-    background-image: url('https://ozma.io/assets/images/digital-solutions-meaning/digital-solutions-meaning-1.2.webp');
-    background-size: cover; /* Asegura que la imagen cubra toda el área */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-
-    /* Centrar el contenido vertical y horizontalmente usando Flexbox */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: white; /* Cambiamos el color de texto a blanco para contrastar con la imagen de fondo */
-    
-    /* Añadimos una sombra de texto para mejorar la legibilidad sobre la imagen */
-    text-shadow: 1px 1px 4px rgba(233, 227, 227, 0.7);
-
-    /* Opcional: Overlay semitransparente sobre la imagen de fondo */
-    /* Esto ayuda a que el texto sea más legible sobre imágenes ocupadas */
-    /* Puedes ajustar el color y la opacidad */
 }
 
-/* Pseudo-elemento para el overlay semitransparente sobre la imagen de fondo */
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Ensures the carousel, inner, and items fill their parent */
+#carouselExampleAutoplaying,
+.carousel-inner,
+.carousel-item {
     width: 100%;
-    height: 100%;
-    /* Color negro con 40% de opacidad. Ajusta rgba(0,0,0,0.4) según tus preferencias */
-    background-color: rgba(116, 154, 163, 0.768); 
-    z-index: 1; /* Asegura que el overlay esté encima de la imagen pero debajo del contenido */
+    height: 100%; 
 }
 
-
-.contact-content {
-    max-width: 800px;
-    margin: 0 20px; /* Margen horizontal para evitar que el contenido toque los bordes en pantallas pequeñas */
-    padding: 20px; /* Padding interno para el contenido */
-    position: relative; /* Asegura que el contenido esté sobre el overlay */
-    z-index: 2; /* Mayor que el z-index del pseudo-elemento */
-    background-color: rgba(255, 255, 255, 0.35); /* Ligero fondo para el contenido, casi transparente */
-    border-radius: 10px; /* Bordes redondeados para el contenedor de contenido */
+/* Styles for the carousel images */
+.carousel-img {
+    width: 100%;
+    height: 100%; /* Images should fill the item */
+    object-fit: cover; /* Crops images to cover the area without distortion */
+    filter: brightness(60%); /* Darkens the image to improve text contrast */
 }
 
-.contact-content h2 {
-    color: rgb(4, 20, 43); /* Cambiamos a blanco para mejor contraste */
-    font-size: 2.5em;
+/* Styles for the content container within the carousel (text and button) */
+.carousel-caption {
+    /* Bootstrap's default positioning is absolute. Adjust its size and centering */
+    position: absolute; /* Ensures it overlays */
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    display: flex; /* Uses flexbox to center content */
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    text-align: center; /* Centers the text */
+    padding: 20px; /* General padding for the content */
+    z-index: 10; /* Ensures it's above the image */
+}
+
+/* Specific styles for the div containing the text and button */
+.contact-content-carousel {
+    max-width: 800px; /* Max width for readability */
+    padding: 30px; /* More padding for the content box */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.513); /* White background with 85% opacity */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for prominence */
+    backdrop-filter: blur(5px); /* Optional: Modern glassy blur effect (good browser support) */
+    color: #333; /* Dark text color for contrast against the light background */
+}
+
+.contact-content-carousel h2 {
+    color: #343a40; /* Darker color for the main title */
+    font-size: 2.8em;
     margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-.contact-content p {
-    color: #2f0644; /* Un gris más claro para el párrafo */
-    font-size: 1.1em;
+.contact-content-carousel p {
+    color: #363a3e; /* Gray color for the paragraph */
+    font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 30px;
 }
 
-.contact-button {
+.contact-button-carousel {
     display: inline-block;
-    background-color: #6200ff; /* Un azul vibrante */
+    background-color: #6200ff; /* Your vibrant color */
     color: white;
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    border: 2px solid #6200ff; /* Borde del mismo color */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Remove any default border */
 }
 
-.contact-button:hover {
-    background-color: #4a00cb; /* Un azul un poco más oscuro al pasar el ratón */
-    border-color: #4a00cb; /* Cambiar el color del borde al hacer hover */
+.contact-button-carousel:hover {
+    background-color: #4a00cb; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-/* Media queries para responsividad */
-@media (max-width: 768px) {
-    .contact-content h2 {
-        font-size: 2em;
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .contact-content-carousel h2 {
+        font-size: 2.2em;
     }
+    .contact-content-carousel p {
+        font-size: 1.1em;
+    }
+}
 
-    .contact-content p {
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 15px;
+    }
+    .contact-content-carousel {
+        padding: 25px;
+        max-width: 90%; /* Allows it to take up more space on smaller screens */
+    }
+    .contact-content-carousel h2 {
+        font-size: 1.8em;
+    }
+    .contact-content-carousel p {
         font-size: 1em;
     }
-
-    .contact-button {
+    .contact-button-carousel {
         padding: 12px 25px;
         font-size: 1em;
     }
+    .carousel-img {
+        filter: brightness(50%); /* Darken image further for better contrast on small screens */
+    }
 }
 
-@media (max-width: 480px) {
-    .contact-content h2 {
-        font-size: 1.8em;
+@media (max-width: 576px) {
+    .contact-content-carousel {
+        padding: 20px;
     }
-    .contact-content {
-        padding: 15px;
+    .contact-content-carousel h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .contact-content-carousel p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .contact-button-carousel {
+        padding: 10px 20px;
+        font-size: 0.9em;
     }
 }
 
@@ -155,7 +179,6 @@
     text-align: center; /* Centra el texto dentro de la sección */
     width: 100%; /* Ocupa todo el ancho disponible */
     max-width: 800px; /* Limita el ancho máximo para la legibilidad */
-    margin-bottom: 40px; /* Espacio debajo del encabezado antes de las tarjetas */
    
 }
 
