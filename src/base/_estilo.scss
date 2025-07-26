@@ -5,3 +5,9 @@ body, html {
     overflow-x: hidden; /* Prevents unwanted horizontal scroll */
     background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
 }
+
+.main {
+     height: 100vh;
+    overflow: auto;  
+    scroll-snap-type: y mandatory;
+}

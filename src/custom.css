@@ -10,11 +10,19 @@ body, html {
   background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
+.main {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+
 .carousel-section {
   width: 100%;
   height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
   overflow: hidden; /* Importante para evitar el desbordamiento de la imagen */
   position: relative; /* Necesario para el posicionamiento absoluto de las superposiciones */
+  scroll-snap-align: start;
+  min-height: 60vh;
 }
 
 /* Asegura que el carrusel, inner y los items llenen su padre */
@@ -147,20 +155,23 @@ body, html {
   font-family: "Outfit", sans-serif; /* Fuente moderna y limpia para texto general usando variable */
   text-align: center;
   overflow: hidden; /* Asegura que no haya desbordamiento de contenido */
+  scroll-snap-align: start;
+  min-height: 100vh;
   /* --- Estilos del Encabezado de la Sección --- */
   /* --- Contenedor de la Cuadrícula de Métricas --- */
 }
 .metrics-header {
-  margin-bottom: 60px; /* Espaciado entre el encabezado y las tarjetas de métricas */
+  margin-bottom: 20px; /* Espaciado entre el encabezado y las tarjetas de métricas */
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 .metrics-header .metrics-title {
   font-family: "Inter", sans-serif; /* Fuente impactante para el título principal usando variable */
-  font-size: clamp(2.2rem, 4vw + 0.5rem, 4.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
+  font-size: clamp(1.2rem, 4vw + 0.5rem, 2.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
   color: #1A202C; /* Color oscuro y fuerte para contraste usando variable */
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   font-weight: 900; /* Extra bold para énfasis */
   line-height: 1.2;
   letter-spacing: -0.8px; /* Espaciado ligeramente más estrecho para un look moderno */

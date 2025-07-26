@@ -7,19 +7,22 @@
     font-family: $metrics-general-font; /* Fuente moderna y limpia para texto general usando variable */
     text-align: center;
     overflow: hidden; /* Asegura que no haya desbordamiento de contenido */
+  scroll-snap-align: start;
+    min-height: 100vh;
 
     /* --- Estilos del Encabezado de la Sección --- */
     &-header {
-        margin-bottom: 60px; /* Espaciado entre el encabezado y las tarjetas de métricas */
+        margin-bottom: 20px; /* Espaciado entre el encabezado y las tarjetas de métricas */
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
 
         .metrics-title {
             font-family: $metrics-title-font; /* Fuente impactante para el título principal usando variable */
-            font-size: clamp(2.2rem, 4vw + 0.5rem, 4.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
+            font-size: clamp(1.2rem, 4vw + 0.5rem, 2.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
             color: $metrics-title-color; /* Color oscuro y fuerte para contraste usando variable */
-            margin-bottom: 20px;
+            margin-top: 50px;
+            margin-bottom: 30px;
             font-weight: 900; /* Extra bold para énfasis */
             line-height: 1.2;
             letter-spacing: -0.8px; /* Espaciado ligeramente más estrecho para un look moderno */
