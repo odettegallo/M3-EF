@@ -149,6 +149,200 @@ body, html {
     font-size: 0.9em;
   }
 }
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+  background-color: #f8f9fa;
+  background-image: url("https://tse1.mm.bing.net/th/id/OIP.NTr6sbUF43pbtBwzfbUSpAHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3");
+  box-sizing: border-box;
+}
+
+.contact-form-container {
+  background-color: #ffffff;
+  border: #e0e0e0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.contact-form-container .contact-form__title {
+  color: #1A202C;
+  font-family: "Inter", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.contact-form-container .contact-form__description {
+  color: #4A5568;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* --- Estilos del Formulario en sí --- */
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 8px);
+  min-width: 260px;
+}
+.contact-form .form-group--full-width {
+  flex: 1 1 100%;
+}
+.contact-form .form-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 4px;
+  color: #1A202C;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.contact-form .form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+  color: #1A202C;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+.contact-form .form-control::placeholder {
+  color: #6c757d;
+  font-weight: 300;
+}
+.contact-form .form-control:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background-color: #ffffff;
+}
+.contact-form textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form .invalid-feedback {
+  text-align: left;
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: 4px;
+}
+
+/* --- Estilos del Botón de Enviar --- */
+.submit-button {
+  background-color: #3B82F6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  width: auto;
+  margin-top: 16px;
+  align-self: flex-end;
+  letter-spacing: 0.5px;
+}
+.submit-button:hover {
+  background-color: rgb(11.1512195122, 99.1219512195, 242.8487804878);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.submit-button:active {
+  background-color: rgb(107.7609756098, 161.0975609756, 248.2390243902);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --- Estilos del Toast de Bootstrap --- */
+.toast-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1080;
+}
+.toast-container .toast {
+  background-color: rgba(33, 136, 56, 0.9);
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.toast-container .toast .toast-body {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+}
+.toast-container .toast .btn-close-white {
+  filter: brightness(0) invert(1);
+}
+
+/* --- Media Queries para la Responsividad del Formulario --- */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 32px 16px;
+  }
+  .contact-form .form-group {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  .contact-form__title {
+    font-size: 1.875rem;
+  }
+  .contact-form__description {
+    font-size: 1rem;
+  }
+  .submit-button {
+    width: 100%;
+    align-self: center;
+  }
+}
+@media (max-width: 480px) {
+  .contact-form-section {
+    padding: 16px 12px;
+  }
+  .contact-form-container {
+    padding: 24px 16px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .contact-form-container .contact-form__title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .contact-form-container .contact-form__description {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  .contact-form {
+    gap: 12px;
+  }
+  .form-control {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  .submit-button {
+    padding: 12px 16px;
+    font-size: 1.125rem;
+  }
+}
 .metrics {
   padding: 80px 20px; /* Mantiene el espaciado vertical general */
   background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%); /* Gradiente de fondo fresco y energético usando variable */

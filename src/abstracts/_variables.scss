@@ -36,3 +36,58 @@ $metrics-card-hover-gradient: linear-gradient(135deg, #A78BFA 0%, #F472B6 100%);
 $metric-number-color: #4C51BF; // Color del número (azul-púrpura vibrante)
 $metric-content-color: #334155; // Color del título de la métrica
 $metric-description-color: #64748B; // Color de la descripción de la métrica
+
+$form-section-bg: #f8f9fa; // Un fondo claro para la sección
+$form-container-bg: $text-white; // Fondo del contenedor del formulario
+$form-container-border-color: #e0e0e0; // Borde sutil del contenedor
+$form-text-color-dark: $metrics-title-color; // Color oscuro para títulos del formulario
+$form-text-color-light: $metrics-subtitle-color; // Color suave para descripciones
+$form-input-bg: #f8f9fa; // Fondo de los campos de entrada
+$form-input-border-color: #ced4da; // Borde de los campos de entrada
+$form-focus-border-color: $carousel-button-color; // Color del borde al enfocar (azul del navbar/carrusel)
+$form-placeholder-color: #6c757d; // Color del texto del placeholder
+$form-button-bg: $carousel-button-color; // Color de fondo del botón de enviar
+$form-button-text-color: $text-white; // Color del texto del botón
+
+// Espaciado
+$form-spacing-xxs: 4px;
+$form-spacing-xs: 8px;
+$form-spacing-sm: 12px;
+$form-spacing-md: 16px;
+$form-spacing-lg: 24px;
+$form-spacing-xl: 32px;
+$form-spacing-xxl: 48px;
+
+// Tamaños de fuente
+$form-font-size-xs: 0.875rem;
+$form-font-size-sm: 1rem;
+$form-font-size-base: 1.125rem;
+$form-font-size-md: 1.25rem;
+$form-font-size-lg: 1.5rem;
+$form-font-size-xl: 1.875rem;
+$form-font-size-xxl: 2.25rem;
+
+// Bordes y Sombras
+$form-border-radius-sm: 5px;
+$form-border-radius-md: 10px;
+$form-border-radius-lg: 20px;
+$form-container-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+$form-button-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+// Transiciones
+$form-transition-ease: all 0.3s ease-in-out;
+
+$font-weight-bold: 700; // Para el título principal del formulario
+$font-weight-regular: 400; // Para labels
+$font-weight-semibold: 600; // Para el botón
+$font-weight-light: 300; // Para placeholders (si lo mapeas a 300)
+
+
+// Bordes y sombras
+$form-border-radius-none: 0;
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$box-shadow-subtle: 0 2px 5px rgba(0,0,0,0.08);
+$box-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.08);
+$text-shadow-light: 1px 1px 2px rgba(0,0,0,0.5);
+$text-shadow-strong: 2px 2px 4px rgba(0,0,0,0.5);
