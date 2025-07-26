@@ -192,134 +192,206 @@ filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al
 
 
 /* Estilos para el nuevo contenedor del título y subtítulo */
-.metrics-header {
-    display: flex;
-    flex-direction: column; /* Cambiamos a column para que los elementos se apilen verticalmente */
-    align-items: center; /* Centra los elementos a lo largo del eje transversal (horizontalmente en este caso) */
-    flex-wrap: wrap; /* Mantenemos flex-wrap para que las tarjetas se envuelvan */
-    justify-content: center; /* Centra las tarjetas cuando no llenan una fila completa */
-    gap: 30px; /* Espacio entre las tarjetas */
-    padding: 60px 20px;
-    background-color: #f8f9fa; /* Un fondo suave para la sección */
-                background-image: url('https://sociology.plus/wp-content/uploads/2022/10/Achievement-Principle-Sociology-Definition.jpg');
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap');
 
-    font-family: Arial, sans-serif;
-    
+/* --- General Metrics Section Styles --- */
+.metrics {
+    padding: 80px 20px; /* Maintains general vertical spacing */
+    /* Fresh and energetic background gradient */
+    background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%);
+    font-family: 'Outfit', sans-serif; /* Modern, clean font for general text */
+    text-align: center;
+    overflow: hidden; /* Ensures no content overflow */
+}
+
+/* --- Section Header Styles --- */
+.metrics-header {
+    margin-bottom: 60px; /* Spacing between header and metric cards */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .metrics-header .metrics-title {
-    font-size: 2.8em; /* Tamaño grande para el título principal */
-    color: #343a40; /* Color oscuro */
-    margin-bottom: 15px; /* Espacio entre el título y el subtítulo */
-    font-weight: bold;
-    line-height: 1.2; /* Altura de línea para mejor legibilidad */
+    font-family: 'Inter', sans-serif; /* Bold and impactful font for the main title */
+    font-size: clamp(2.2rem, 4vw + 0.5rem, 1.8rem); /* Responsive font size */
+    color: #1A202C; /* Dark, strong color for contrast */
+    margin-bottom: 20px;
+    font-weight: 900; /* Extra bold for emphasis */
+    line-height: 1.2;
+    letter-spacing: -0.8px; /* Slightly tighter spacing for a modern look */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
 }
 
 .metrics-header .metrics-subtitle {
-    font-size: 1.3em; /* Tamaño para el subtítulo */
-    color: #6c757d; /* Color gris */
+    font-family: 'Outfit', sans-serif;
+    font-size: 2 rem; /* Responsive font size */
+    color: #4A5568; /* Softer dark gray */
     line-height: 1.6;
-    margin-bottom: 0; /* Aseguramos que no haya margen inferior extra */
-    text-align: center; /* Centra el texto dentro de la sección */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 800px; /* Limita el ancho máximo para la legibilidad */
-   
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Estilos generales para la sección de métricas */
-.metrics-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra las tarjetas cuando no llenan una fila completa */
-    gap: 30px; /* Espacio entre las tarjetas */
-    padding: 60px 20px;
-    background-color: #f8f9fa; /* Un fondo suave para la sección */
-    font-family: Arial, sans-serif;
-    text-align: center; /* Centra el texto dentro de la sección */
-                background-image: url('https://t3.ftcdn.net/jpg/02/51/56/78/360_F_251567871_ERKF8XO62yKghof8z97pMIqt08ooLl5Q.jpg');
-
+/* --- Metrics Grid Container --- */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid layout */
+    gap: 30px; /* Space between cards, maintaining size */
+    max-width: 1200px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+    padding: 0 20px;
 }
 
-/* Estilos para cada tarjeta de métrica */
+/* --- Metric Card Styles --- */
 .metric-card {
-    flex: 1 1 280px; /* flex-grow, flex-shrink, flex-basis: Permite que las tarjetas crezcan, se encojan y tengan una base de 280px */
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil para un efecto de elevación */
+    background-color: #ffffff; /* Clean white background */
+    padding: 35px; /* Ample padding to maintain size */
+    border-radius: 20px; /* More rounded borders for a youthful look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Pronounced, soft shadow */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center; /* Centra el contenido horizontalmente dentro de la tarjeta */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el hover */
+    align-items: center;
+    /* Smooth, appealing transition for hover effects */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden; /* Important for the dynamic background effect */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Subtle white border for a clean edge */
 }
 
 .metric-card:hover {
-    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el ratón */
+    transform: translateY(-10px) scale(1.03); /* More noticeable lift and slight scale */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    z-index: 1; /* Ensures the hovered card is on top */
 }
 
+/* Dynamic background effect on hover (Wave/Splash) */
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Energetic gradient for the hover effect */
+    background: linear-gradient(135deg, #A78BFA 0%, #F472B6 100%); /* Purple to Pink */
+    border-radius: 20px;
+    z-index: -1; /* Behind the content */
+    transform: scale(0); /* Hidden initially */
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out; /* Bouncy transition */
+}
+
+.metric-card:hover::before {
+    transform: scale(1.1); /* Expands beyond card slightly for a full-bleed effect */
+    opacity: 1;
+}
+
+/* --- Metric Numbers (h3) --- */
 .metric-card h3 {
-    font-size: 3.2em; /* Tamaño grande para los números */
-    color: #6200ff; /* Un color vibrante para destacar la cifra (igual que tu botón de contacto) */
-    margin-bottom: 10px;
-    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8 rem; /* Large, impactful, and responsive */
+    color: #4C51BF; /* Vibrant purple-blue */
+    margin-bottom: 12px;
+    font-weight: 900; /* Extra bold */
+    position: relative;
+    z-index: 2; /* Ensures text is above the pseudo-element */
+    transition: color 0.3s ease;
 }
 
+.metric-card:hover h3 {
+    color: #ffffff; /* White on hover for stark contrast */
+}
+
+/* --- Metric Title (p.metric-title) --- */
 .metric-card .metric-title {
-    font-size: 1.25em; /* Tamaño para el título de la métrica */
-    color: #343a40; /* Color oscuro para el título */
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.3rem); /* Responsive, readable size */
+    color: #334155; /* Dark gray for good readability */
+    font-weight: 700; /* Bold */
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
+.metric-card:hover .metric-title {
+    color: #ffffff; /* White on hover */
+}
+
+/* --- Metric Description (p.metric-description) --- */
 .metric-card .metric-description {
-    font-size: 0.95em; /* Tamaño para la descripción */
-    color: #6c757d; /* Color gris suave para la descripción */
-    line-height: 1.5;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem); /* Responsive, clear description */
+    color: #64748B; /* Softer gray */
+    line-height: 1.6;
     margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
-/* Media queries para responsividad */
+.metric-card:hover .metric-description {
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white on hover */
+}
+
+/* --- Media Queries for Responsiveness (Adjusted for new styles) --- */
+@media (max-width: 992px) {
+    .metrics-header {
+        margin-bottom: 40px;
+    }
+    .metrics-grid {
+        gap: 25px;
+    }
+    .metric-card {
+        padding: 30px;
+    }
+}
+
 @media (max-width: 768px) {
-    .metrics-section {
-        padding: 40px 15px;
+    .metrics {
+        padding: 60px 15px;
+    }
+    .metrics-header .metrics-title {
+        font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3.2rem);
+    }
+    .metrics-header .metrics-subtitle {
+        font-size: clamp(0.95rem, 1.5vw + 0.2rem, 1.2rem);
+    }
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
-
     .metric-card {
-        flex-basis: calc(50% - 20px); /* Dos tarjetas por fila en tabletas (ajustando por el gap) */
         padding: 25px;
     }
-
     .metric-card h3 {
-        font-size: 2.8em;
+        font-size: clamp(2.5rem, 4vw + 0.5rem, 3.8rem);
     }
-
     .metric-card .metric-title {
-        font-size: 1.15em;
+        font-size: clamp(1rem, 1.3vw + 0.1rem, 1.2rem);
+    }
+    .metric-card .metric-description {
+        font-size: clamp(0.8rem, 1vw + 0.1rem, 0.95rem);
     }
 }
 
-@media (max-width: 480px) {
-    .metrics-section {
-        padding: 30px 10px;
+@media (max-width: 576px) {
+    .metrics {
+        padding: 40px 10px;
     }
-
+    .metrics-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        max-width: 400px; /* Limit width to prevent stretching */
+        margin: 0 auto;
+    }
     .metric-card {
-        flex-basis: 100%; /* Una tarjeta por fila en móviles */
-        max-width: 350px; /* Limita el ancho en pantallas muy pequeñas para que no se estire demasiado */
+        padding: 20px;
+        border-radius: 15px;
     }
-
     .metric-card h3 {
-        font-size: 2.5em;
-    }
-
-    .metric-card .metric-title {
-        font-size: 1.1em;
-    }
-
-    .metric-card .metric-description {
-        font-size: 0.9em;
+        font-size: clamp(2.2rem, 3.5vw + 0.5rem, 3.5rem);
     }
 }
