@@ -124,3 +124,133 @@
         padding: 15px;
     }
 }
+
+/* Estilos para el nuevo contenedor del título y subtítulo */
+.metrics-header {
+    display: flex;
+    flex-direction: column; /* Cambiamos a column para que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los elementos a lo largo del eje transversal (horizontalmente en este caso) */
+    flex-wrap: wrap; /* Mantenemos flex-wrap para que las tarjetas se envuelvan */
+    justify-content: center; /* Centra las tarjetas cuando no llenan una fila completa */
+    gap: 30px; /* Espacio entre las tarjetas */
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Un fondo suave para la sección */
+    font-family: Arial, sans-serif;
+    
+}
+
+.metrics-header .metrics-title {
+    font-size: 2.8em; /* Tamaño grande para el título principal */
+    color: #343a40; /* Color oscuro */
+    margin-bottom: 15px; /* Espacio entre el título y el subtítulo */
+    font-weight: bold;
+    line-height: 1.2; /* Altura de línea para mejor legibilidad */
+}
+
+.metrics-header .metrics-subtitle {
+    font-size: 1.3em; /* Tamaño para el subtítulo */
+    color: #6c757d; /* Color gris */
+    line-height: 1.6;
+    margin-bottom: 0; /* Aseguramos que no haya margen inferior extra */
+    text-align: center; /* Centra el texto dentro de la sección */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Limita el ancho máximo para la legibilidad */
+    margin-bottom: 40px; /* Espacio debajo del encabezado antes de las tarjetas */
+   
+}
+
+/* Estilos generales para la sección de métricas */
+.metrics-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas cuando no llenan una fila completa */
+    gap: 30px; /* Espacio entre las tarjetas */
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Un fondo suave para la sección */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centra el texto dentro de la sección */
+}
+
+/* Estilos para cada tarjeta de métrica */
+.metric-card {
+    flex: 1 1 280px; /* flex-grow, flex-shrink, flex-basis: Permite que las tarjetas crezcan, se encojan y tengan una base de 280px */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil para un efecto de elevación */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centra el contenido horizontalmente dentro de la tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el hover */
+}
+
+.metric-card:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.metric-card h3 {
+    font-size: 3.2em; /* Tamaño grande para los números */
+    color: #6200ff; /* Un color vibrante para destacar la cifra (igual que tu botón de contacto) */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.metric-card .metric-title {
+    font-size: 1.25em; /* Tamaño para el título de la métrica */
+    color: #343a40; /* Color oscuro para el título */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.metric-card .metric-description {
+    font-size: 0.95em; /* Tamaño para la descripción */
+    color: #6c757d; /* Color gris suave para la descripción */
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .metrics-section {
+        padding: 40px 15px;
+        gap: 20px;
+    }
+
+    .metric-card {
+        flex-basis: calc(50% - 20px); /* Dos tarjetas por fila en tabletas (ajustando por el gap) */
+        padding: 25px;
+    }
+
+    .metric-card h3 {
+        font-size: 2.8em;
+    }
+
+    .metric-card .metric-title {
+        font-size: 1.15em;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-section {
+        padding: 30px 10px;
+    }
+
+    .metric-card {
+        flex-basis: 100%; /* Una tarjeta por fila en móviles */
+        max-width: 350px; /* Limita el ancho en pantallas muy pequeñas para que no se estire demasiado */
+    }
+
+    .metric-card h3 {
+        font-size: 2.5em;
+    }
+
+    .metric-card .metric-title {
+        font-size: 1.1em;
+    }
+
+    .metric-card .metric-description {
+        font-size: 0.9em;
+    }
+}
