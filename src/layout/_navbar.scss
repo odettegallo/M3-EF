@@ -1,8 +1,5 @@
 @use "../abstracts/variables" as *;
-
-body {
-    padding-top: 75px; /* Ajusta este valor si tu navbar tiene una altura diferente */
-}
+@use "../base/estilo";
 
 // Tu SCSS existente para .navbar
 .navbar {
