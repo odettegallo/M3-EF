@@ -50,11 +50,13 @@ body, html {
     padding: 0;
     height: 100%;
     overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+
 }
 
 /* Styles for the entire carousel section */
 .carousel-section {
-    width: 100vw;
+    width: 100%;
     height: 100vh; /* Makes the carousel take up the full viewport height */
     overflow: hidden; /* Important to prevent image overflow */
     position: relative; /* Needed for absolute positioning of overlays if any */
@@ -74,8 +76,8 @@ body, html {
     width: 100%;
     height: 100%; /* Images should fill the item */
     object-fit: cover; /* Crops images to cover the area without distortion */
-    filter: brightness(60%); /* Darkens the image to improve text contrast */
-}
+filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al color */
+    transition: filter 0.5s ease-in-out;}
 
 /* Styles for the content container within the carousel (text and button) */
 .carousel-caption {
@@ -94,13 +96,15 @@ body, html {
 
 /* Specific styles for the div containing the text and button */
 .contact-content-carousel {
-    max-width: 800px; /* Max width for readability */
-    padding: 30px; /* More padding for the content box */
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.513); /* White background with 85% opacity */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for prominence */
-    backdrop-filter: blur(5px); /* Optional: Modern glassy blur effect (good browser support) */
-    color: #333; /* Dark text color for contrast against the light background */
+    max-width: 750px; /* Ancho máximo para legibilidad */
+    padding: 35px 45px; /* Más padding para un look más "premium" */
+    border-radius: 20px; /* Bordes más redondeados para un toque juvenil */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco con alta opacidad */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada y suave */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque "glassmorphism" */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
+    color: #333; /* Color de texto oscuro para contraste */
+    animation: fadeInScale 0.8s ease-out forwards; /* Animación de entrada */
 }
 
 .contact-content-carousel h2 {
