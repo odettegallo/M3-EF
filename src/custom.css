@@ -1,3 +1,33 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+.navbar {
+  background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.navbar-brand .text-primary {
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.2rem, 1.8vw + 0.5rem, 2.2rem) !important;
+  font-weight: 700;
+}
+.navbar-nav .nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease, transform 0.2s ease;
+  background-color: transparent;
+  margin: 0 18px;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: #000000 !important;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
 /*# sourceMappingURL=custom.css.map */
