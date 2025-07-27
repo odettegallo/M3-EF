@@ -652,4 +652,79 @@ body, html {
   font-family: "Montserrat", sans-serif;
 }
 
+.nosotros {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+.nosotros_valores {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+.nosotros_equipo {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+.team-section .team-grid .team-member-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.team-section .team-grid .team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+.team-section .team-grid .team-member-card .team-member-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #3B82F6;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0;
+}
+.team-section .team-grid .team-member-card .team-member-name {
+  font-size: 1.5rem;
+  color: #1A202C;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.team-section .team-grid .team-member-card .team-member-role {
+  font-size: 1rem;
+  color: #3B82F6;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .team-member-bio {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #64748B;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .d-flex.justify-content-center.gap-2.mt-3 {
+  margin-top: auto !important;
+  padding-top: 12px;
+}
+.team-section .team-grid .team-member-card .team-member-social a {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+.team-section .team-grid .team-member-card .team-member-social a:hover {
+  color: rgb(10.0317073171, 89.1707317073, 218.4682926829);
+}
+
 /*# sourceMappingURL=custom.css.map */
