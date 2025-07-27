@@ -7,13 +7,12 @@
     align-items: center; // Centra verticalmente el contenedor del formulario
     min-height: 100vh; // Para que ocupe al menos la altura de la ventana
     padding: $form-spacing-xl $form-spacing-md; // Padding adaptable
-    background-color: $form-section-bg; // Un fondo claro para el minimalismo
-    background-image: url('https://tse1.mm.bing.net/th/id/OIP.NTr6sbUF43pbtBwzfbUSpAHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3');
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
     box-sizing: border-box;
 }
 
 .contact-form-container {
-    background-color: $form-container-bg; // Fondo blanco puro
+    background: $metrics-bg-gradient; /* Gradiente de fondo fresco y energético usando variable */
     border: $form-container-border-color; // Borde muy sutil
     border-radius: $form-border-radius-lg; // Bordes suavemente redondeados
     padding: $form-spacing-xl; // Espaciado interno generoso

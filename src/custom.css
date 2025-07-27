@@ -159,13 +159,12 @@ p {
   align-items: center;
   min-height: 100vh;
   padding: 32px 16px;
-  background-color: #f8f9fa;
-  background-image: url("https://tse1.mm.bing.net/th/id/OIP.NTr6sbUF43pbtBwzfbUSpAHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3");
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
   box-sizing: border-box;
 }
 
 .contact-form-container {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%); /* Gradiente de fondo fresco y energético usando variable */
   border: #e0e0e0;
   border-radius: 20px;
   padding: 32px;
