@@ -1,0 +1,102 @@
+@use "../abstracts/variables" as *;
+@use "../base/estilo" as *;
+
+#seccionNosotros {
+     scroll-snap-align: start;
+    min-height: 60vh;
+}
+
+#seccionValores {
+    scroll-snap-align: start;
+    min-height: 60vh;
+}
+
+
+#seccionEquipo {
+     scroll-snap-align: start;
+    min-height: 60vh;
+}
+
+
+
+
+.team-section {
+    // Estilos generales de la sección ya definidos...
+
+    .team-grid {
+        // Bootstrap ya usa `display: flex;` y `flex-wrap: wrap;` en `.row` y `.col`
+        // para asegurar que los elementos se distribuyan correctamente y se ajusten en altura.
+
+        // .col ruleset removed as it was empty and unnecessary
+
+        .team-member-card {
+            background-color: white; // Reemplaza con tu variable si es diferente
+            border-radius: $form-border-radius-lg;
+            padding: $form-spacing-md;
+            box-shadow: $metrics-card-shadow;
+            transition: $form-transition-ease;
+            height: 100%; // Asegura que la tarjeta ocupe toda la altura de su columna
+            display: flex; // Convertimos la tarjeta en un contenedor flex
+            flex-direction: column; // Los elementos internos se apilarán verticalmente
+            justify-content: space-between; // Esto empujará el contenido superior hacia arriba y el inferior (redes sociales) hacia abajo
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: $metrics-card-hover-shadow;
+            }
+
+            .team-member-image {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border: 3px solid $primary-color;
+                margin-bottom: $form-spacing-md; // Espacio debajo de la imagen
+            }
+
+            .card-body {
+                display: flex; // Convertimos el cuerpo de la tarjeta en un contenedor flex
+                flex-direction: column; // Los elementos dentro del cuerpo se apilarán
+                flex-grow: 1; // Permite que el card-body ocupe todo el espacio disponible
+                justify-content: space-between; // Esto es crucial: empuja el último elemento (redes sociales) al final del card-body
+                padding: 0; // Eliminamos el padding predeterminado del card-body para mayor control
+            }
+
+            .team-member-name {
+                font-size: $form-font-size-lg;
+                color: $metrics-title-color;
+                font-weight: $font-weight-semibold;
+                margin-bottom: $form-spacing-xxs; // Espacio más pequeño
+            }
+
+            .team-member-role {
+                font-size: $form-font-size-sm;
+                color: $primary-color;
+                font-weight: $font-weight-regular;
+                margin-bottom: $form-spacing-md; // Espacio debajo del rol
+            }
+
+            .team-member-bio {
+                font-size: $form-font-size-xs;
+                line-height: 1.5;
+                color: $metric-description-color;
+                flex-grow: 1; // Permite que la biografía ocupe el espacio flexible restante
+                margin-bottom: $form-spacing-md; // Espacio debajo de la biografía
+            }
+
+            .d-flex.justify-content-center.gap-2.mt-3 {
+                margin-top: auto !important; // Empuja este div al final del card-body
+                padding-top: $form-spacing-sm; // Espacio entre bio y redes sociales
+            }
+
+            .team-member-social { // Una clase de conveniencia si quieres estilos específicos para el contenedor de redes
+                a {
+                    color: $secondary-color;
+                    transition: color 0.3s ease;
+                    &:hover {
+                        color: darken($primary-color, 15%);
+                    }
+                }
+            }
+        }
+    }
+}

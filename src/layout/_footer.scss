@@ -1,0 +1,103 @@
+@use "../abstracts/variables" as *;
+
+.footer {
+    // Aplicamos el mismo gradiente y sombra que el navbar
+    background: $navbar-bg-gradient;
+    box-shadow: $navbar-shadow;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+    // Ajusta los márgenes según tu diseño, aquí se mantienen los originales
+    height: fit-content;
+    padding: 20px 0; // Añadimos un padding general al footer
+}
+
+.footer__container {
+    display: flex;
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    align-content: center;
+    row-gap: 24px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    width: 100%; // Asegura que ocupe todo el ancho disponible
+}
+
+.footer__link {
+    display: flex;
+    width: 160px;
+    min-width: 160px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__link-title {
+    width: 100%;
+    // Usamos el color de texto claro del navbar y la fuente del logo para los títulos
+    color: $link-color;
+    text-align: center;
+    font-size: 1.1rem; // Ajusta el tamaño de fuente si es necesario
+    font-weight: 600; // Un poco más de peso para los títulos
+    line-height: 24px;
+    font-family: $logo-font;
+    transition: color 0.3s ease, transform 0.2s ease; // Transición para hover
+
+    &:hover {
+        color: $text-dark !important; // Mismo efecto hover que los links del navbar
+        transform: translateY(-3px);
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.íconos__footer {
+    display: flex;
+    justify-content: center; // Centramos los íconos
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    margin: 10px 0; // Ajusta los márgenes según necesites
+    width: 100%; // Asegura que ocupe todo el ancho disponible
+
+    
+    // Estilo para los SVG (íconos)
+    svg {
+        fill: $link-color; // Color de los íconos similar al texto de los links
+        transition: fill 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+            fill: $text-dark; // Efecto hover para los íconos
+            transform: translateY(-3px);
+        }
+    }
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; // Espacio entre los links y el copyright
+}
+
+.footer__copyright-text {
+    width: 100%;
+    // Usamos el mismo color de texto y fuente que los links del navbar
+    color: $link-color;
+    text-align: center;
+    font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem); // Mismo tamaño adaptable que los links
+    font-weight: 400;
+    line-height: 24px;
+    font-family: $link-font;
+}

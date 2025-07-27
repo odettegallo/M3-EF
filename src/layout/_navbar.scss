@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as *;
+@use "../base/estilo";
+
+// Tu SCSS existente para .navbar
+.navbar {
+    background: $navbar-bg-gradient;
+    box-shadow: $navbar-shadow;
+
+    // Anidamiento para .navbar-brand dentro de .navbar
+    &-brand {
+        .text-primary {
+            color: $text-white !important;
+            font-family: $logo-font;
+            font-size: clamp(1.2rem, 1.8vw + 0.5rem, 2.2rem) !important;
+            font-weight: 700;
+        }
+    }
+
+    // Anidamiento para .navbar-nav dentro de .navbar
+    &-nav {
+        .nav-link {
+            font-family: $link-font;
+            font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem);
+            font-weight: 600;
+            color: $link-color;
+            transition: color 0.3s ease, transform 0.2s ease;
+            background-color: transparent;
+            margin: 0 18px;
+
+            // Anidamiento para :hover y .active dentro de .nav-link
+            &:hover,
+            &.active {
+                color: $text-dark !important;
+                transform: translateY(-3px);
+                text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    // Anidamiento para .navbar-toggler dentro de .navbar
+    &-toggler {
+        border-color: $toggler-border-color;
+
+        // Anidamiento para .navbar-toggler-icon dentro de .navbar-toggler
+        &-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{$toggler-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    }
+}

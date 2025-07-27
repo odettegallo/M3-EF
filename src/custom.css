@@ -1,3 +1,733 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
 
+.main {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+
+p {
+  align-items: justify;
+}
+
+.carousel-section {
+  width: 100%;
+  height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
+  overflow: hidden; /* Importante para evitar el desbordamiento de la imagen */
+  position: relative; /* Necesario para el posicionamiento absoluto de las superposiciones */
+  scroll-snap-align: start;
+  min-height: 60vh;
+}
+
+/* Asegura que el carrusel, inner y los items llenen su padre */
+#carouselExampleAutoplaying,
+.carousel-inner,
+.carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para las imágenes del carrusel */
+.carousel-img {
+  width: 100%;
+  height: 100%; /* Las imágenes deben llenar el item */
+  object-fit: cover; /* Recorta las imágenes para cubrir el área sin distorsión */
+  filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al color */
+  transition: filter 0.5s ease-in-out;
+}
+
+/* Estilos para el contenedor de contenido dentro del carrusel (texto y botón) */
+.carousel-caption {
+  /* El posicionamiento predeterminado de Bootstrap es absoluto. Ajustar su tamaño y centrado */
+  position: absolute; /* Asegura que se superponga */
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex; /* Usa flexbox para centrar el contenido */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  text-align: center; /* Centra el texto */
+  padding: 20px; /* Relleno general para el contenido */
+  z-index: 10; /* Asegura que esté por encima de la imagen */
+}
+
+/* Estilos específicos para el div que contiene el texto y el botón */
+.contact-content-carousel {
+  max-width: 750px; /* Ancho máximo para legibilidad */
+  padding: 35px 45px; /* Más padding para un look más "premium" */
+  border-radius: 20px; /* Bordes más redondeados para un toque juvenil */
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco con alta opacidad usando variable */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada y suave usando variable */
+  backdrop-filter: blur(8px); /* Efecto de desenfoque "glassmorphism" */
+  -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
+  color: #333; /* Color de texto oscuro para contraste usando variable */
+  animation: fadeInScale 0.8s ease-out forwards; /* Animación de entrada */
+}
+.contact-content-carousel h2 {
+  color: #343a40; /* Color más oscuro para el título principal usando variable */
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: "Montserrat", sans-serif;
+}
+.contact-content-carousel p {
+  color: #363a3e; /* Color gris para el párrafo usando variable */
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact-button-carousel {
+  display: inline-block;
+  background-color: #3B82F6; /* Tu color vibrante usando variable */
+  color: #ffffff;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none; /* Elimina cualquier borde predeterminado */
+  font-family: "Montserrat", sans-serif;
+}
+.contact-button-carousel:hover {
+  background-color: #2a61c4; /* Azul más oscuro al pasar el ratón usando variable */
+  transform: translateY(-2px); /* Ligero efecto de elevación al pasar el ratón */
+}
+
+@media (max-width: 992px) {
+  .contact-content-carousel h2 {
+    font-size: 2.2em;
+  }
+  .contact-content-carousel p {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 15px;
+  }
+  .contact-content-carousel {
+    padding: 25px;
+    max-width: 90%; /* Permite que ocupe más espacio en pantallas más pequeñas */
+  }
+  .contact-content-carousel h2 {
+    font-size: 1.8em;
+  }
+  .contact-content-carousel p {
+    font-size: 1em;
+  }
+  .contact-button-carousel {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+  .carousel-img {
+    filter: brightness(50%); /* Oscurece la imagen aún más para un mejor contraste en pantallas pequeñas */
+  }
+}
+@media (max-width: 576px) {
+  .contact-content-carousel {
+    padding: 20px;
+  }
+  .contact-content-carousel h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  .contact-content-carousel p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  .contact-button-carousel {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  box-sizing: border-box;
+}
+
+.contact-form-container {
+  background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%); /* Gradiente de fondo fresco y energético usando variable */
+  border: #e0e0e0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.contact-form-container .contact-form__title {
+  color: #1A202C;
+  font-family: "Inter", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.contact-form-container .contact-form__description {
+  color: #4A5568;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* --- Estilos del Formulario en sí --- */
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 8px);
+  min-width: 260px;
+}
+.contact-form .form-group--full-width {
+  flex: 1 1 100%;
+}
+.contact-form .form-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 4px;
+  color: #1A202C;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.contact-form .form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+  color: #1A202C;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+.contact-form .form-control::placeholder {
+  color: #6c757d;
+  font-weight: 300;
+}
+.contact-form .form-control:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background-color: #ffffff;
+}
+.contact-form textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form .invalid-feedback {
+  text-align: left;
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: 4px;
+}
+
+/* --- Estilos del Botón de Enviar --- */
+.submit-button {
+  background-color: #3B82F6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  width: auto;
+  margin-top: 16px;
+  align-self: flex-end;
+  letter-spacing: 0.5px;
+}
+.submit-button:hover {
+  background-color: rgb(11.1512195122, 99.1219512195, 242.8487804878);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.submit-button:active {
+  background-color: rgb(107.7609756098, 161.0975609756, 248.2390243902);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --- Estilos del Toast de Bootstrap --- */
+.toast-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1080;
+}
+.toast-container .toast {
+  background-color: rgba(33, 136, 56, 0.9);
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.toast-container .toast .toast-body {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+}
+.toast-container .toast .btn-close-white {
+  filter: brightness(0) invert(1);
+}
+
+/* --- Media Queries para la Responsividad del Formulario --- */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 32px 16px;
+  }
+  .contact-form .form-group {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  .contact-form__title {
+    font-size: 1.875rem;
+  }
+  .contact-form__description {
+    font-size: 1rem;
+  }
+  .submit-button {
+    width: 100%;
+    align-self: center;
+  }
+}
+@media (max-width: 480px) {
+  .contact-form-section {
+    padding: 16px 12px;
+  }
+  .contact-form-container {
+    padding: 24px 16px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .contact-form-container .contact-form__title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .contact-form-container .contact-form__description {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  .contact-form {
+    gap: 12px;
+  }
+  .form-control {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  .submit-button {
+    padding: 12px 16px;
+    font-size: 1.125rem;
+  }
+}
+.metrics {
+  padding: 80px 20px; /* Mantiene el espaciado vertical general */
+  background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%); /* Gradiente de fondo fresco y energético usando variable */
+  font-family: "Outfit", sans-serif; /* Fuente moderna y limpia para texto general usando variable */
+  text-align: center;
+  overflow: hidden; /* Asegura que no haya desbordamiento de contenido */
+  scroll-snap-align: start;
+  min-height: 100vh;
+  /* --- Estilos del Encabezado de la Sección --- */
+  /* --- Contenedor de la Cuadrícula de Métricas --- */
+}
+.metrics-header {
+  margin-bottom: 20px; /* Espaciado entre el encabezado y las tarjetas de métricas */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.metrics-header .metrics-title {
+  font-family: "Inter", sans-serif; /* Fuente impactante para el título principal usando variable */
+  font-size: clamp(1.2rem, 4vw + 0.5rem, 2.8rem); /* Tamaño de fuente responsivo (ajusté el max para que se parezca más al diseño de títulos grandes) */
+  color: #1A202C; /* Color oscuro y fuerte para contraste usando variable */
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: 900; /* Extra bold para énfasis */
+  line-height: 1.2;
+  letter-spacing: -0.8px; /* Espaciado ligeramente más estrecho para un look moderno */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Sombra de texto sutil */
+}
+.metrics-header .metrics-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.3rem; /* Tamaño de fuente responsivo (corregí "2 rem" a "2rem" y un valor más común) */
+  color: #4A5568; /* Gris oscuro más suave usando variable */
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño de cuadrícula responsivo */
+  gap: 30px; /* Espacio entre tarjetas, manteniendo el tamaño */
+  max-width: 1200px; /* Ancho máximo para la cuadrícula */
+  margin: 0 auto; /* Centra la cuadrícula */
+  padding: 0 20px;
+}
+
+/* --- Estilos de la Tarjeta de Métrica --- */
+.metric-card {
+  background-color: #ffffff; /* Fondo blanco limpio usando variable */
+  padding: 35px; /* Amplio padding para mantener el tamaño */
+  border-radius: 20px; /* Bordes más redondeados para un look juvenil */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra pronunciada y suave usando variable */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* Transición suave y atractiva para los efectos de hover */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden; /* Importante para el efecto de fondo dinámico */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Borde blanco sutil para un borde limpio usando variable */
+  /* Efecto de fondo dinámico en hover (Onda/Salpicadura) */
+  /* --- Números de Métrica (h3) --- */
+  /* --- Título de Métrica (p.metric-title) --- */
+  /* --- Descripción de Métrica (p.metric-description) --- */
+}
+.metric-card:hover {
+  transform: translateY(-10px) scale(1.03); /* Elevación más notoria y ligera escala */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Sombra más profunda en hover usando variable */
+  z-index: 1; /* Asegura que la tarjeta al pasar el ratón esté encima */
+}
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #A78BFA 0%, #F472B6 100%); /* Gradiente energético para el efecto hover usando variable */
+  border-radius: 20px;
+  z-index: -1; /* Detrás del contenido */
+  transform: scale(0); /* Oculto inicialmente */
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out; /* Transición elástica */
+}
+.metric-card:hover::before {
+  transform: scale(1.1); /* Se expande ligeramente más allá de la tarjeta para un efecto de sangrado completo */
+  opacity: 1;
+}
+.metric-card h3 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.8rem, 5vw + 0.5rem, 5rem); /* Grande, impactante y responsivo (ajusté "0.8 rem" a valores más grandes) */
+  color: #4C51BF; /* Azul-púrpura vibrante usando variable */
+  margin-bottom: 12px;
+  font-weight: 900; /* Extra bold */
+  position: relative;
+  z-index: 2; /* Asegura que el texto esté por encima del pseudo-elemento */
+  transition: color 0.3s ease;
+}
+.metric-card:hover h3 {
+  color: #ffffff; /* Blanco en hover para un contraste marcado */
+}
+.metric-card .metric-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.3rem); /* Tamaño responsivo y legible */
+  color: #334155; /* Gris oscuro para buena legibilidad usando variable */
+  font-weight: 700; /* Negrita */
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+.metric-card:hover .metric-title {
+  color: #ffffff; /* Blanco en hover */
+}
+.metric-card .metric-description {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem); /* Descripción responsiva y clara */
+  color: #64748B; /* Gris más suave usando variable */
+  line-height: 1.6;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+.metric-card:hover .metric-description {
+  color: rgba(255, 255, 255, 0.9); /* Blanco ligeramente transparente en hover */
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 992px) {
+  .metrics-header {
+    margin-bottom: 40px;
+  }
+  .metrics-grid {
+    gap: 25px;
+  }
+  .metric-card {
+    padding: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .metrics {
+    padding: 60px 15px;
+  }
+  .metrics-header .metrics-title {
+    font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3.2rem);
+  }
+  .metrics-header .metrics-subtitle {
+    font-size: clamp(0.95rem, 1.5vw + 0.2rem, 1.2rem);
+  }
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .metric-card {
+    padding: 25px;
+  }
+  .metric-card h3 {
+    font-size: clamp(2.5rem, 4vw + 0.5rem, 3.8rem);
+  }
+  .metric-card .metric-title {
+    font-size: clamp(1rem, 1.3vw + 0.1rem, 1.2rem);
+  }
+  .metric-card .metric-description {
+    font-size: clamp(0.8rem, 1vw + 0.1rem, 0.95rem);
+  }
+}
+@media (max-width: 576px) {
+  .metrics {
+    padding: 40px 10px;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr; /* Columna única en pantallas muy pequeñas */
+    max-width: 400px; /* Limita el ancho para evitar estiramiento */
+    margin: 0 auto;
+  }
+  .metric-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .metric-card h3 {
+    font-size: clamp(2.2rem, 3.5vw + 0.5rem, 3.5rem);
+  }
+}
+.navbar {
+  background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.navbar-brand .text-primary {
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.2rem, 1.8vw + 0.5rem, 2.2rem) !important;
+  font-weight: 700;
+}
+.navbar-nav .nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease, transform 0.2s ease;
+  background-color: transparent;
+  margin: 0 18px;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: #000000 !important;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.footer {
+  background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  height: fit-content;
+  padding: 20px 0;
+}
+
+.footer__container {
+  display: flex;
+  padding: 40px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+  align-content: center;
+  row-gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer__link {
+  display: flex;
+  width: 160px;
+  min-width: 160px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__link-title {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 24px;
+  font-family: "Montserrat", sans-serif;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.footer__link-title:hover {
+  color: #000000 !important;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.íconos__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  width: 100%;
+}
+.íconos__footer svg {
+  fill: rgba(255, 255, 255, 0.9);
+  transition: fill 0.3s ease, transform 0.2s ease;
+}
+.íconos__footer svg:hover {
+  fill: #000000;
+  transform: translateY(-3px);
+}
+
+.footer__copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer__copyright-text {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem);
+  font-weight: 400;
+  line-height: 24px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#seccionNosotros {
+  scroll-snap-align: start;
+  min-height: 60vh;
+}
+
+#seccionValores {
+  scroll-snap-align: start;
+  min-height: 60vh;
+}
+
+#seccionEquipo {
+  scroll-snap-align: start;
+  min-height: 60vh;
+}
+
+.team-section .team-grid .team-member-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.team-section .team-grid .team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+.team-section .team-grid .team-member-card .team-member-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #3B82F6;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0;
+}
+.team-section .team-grid .team-member-card .team-member-name {
+  font-size: 1.5rem;
+  color: #1A202C;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.team-section .team-grid .team-member-card .team-member-role {
+  font-size: 1rem;
+  color: #3B82F6;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .team-member-bio {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #64748B;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+.team-section .team-grid .team-member-card .d-flex.justify-content-center.gap-2.mt-3 {
+  margin-top: auto !important;
+  padding-top: 12px;
+}
+.team-section .team-grid .team-member-card .team-member-social a {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+.team-section .team-grid .team-member-card .team-member-social a:hover {
+  color: rgb(10.0317073171, 89.1707317073, 218.4682926829);
+}
 
 /*# sourceMappingURL=custom.css.map */
