@@ -5,7 +5,7 @@
     height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
     overflow: hidden; /* Importante para evitar el desbordamiento de la imagen */
     position: relative; /* Necesario para el posicionamiento absoluto de las superposiciones */
-  scroll-snap-align: start;
+    scroll-snap-align: start;
     min-height: 60vh;
 }
 

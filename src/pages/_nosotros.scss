@@ -1,20 +1,20 @@
 @use "../abstracts/variables" as *;
 @use "../base/estilo" as *;
 
-.nosotros {
-    scroll-snap-align: start;
-    min-height: 100vh;
+#seccionNosotros {
+     scroll-snap-align: start;
+    min-height: 60vh;
 }
 
-// .nosotros_valores {
-//     scroll-snap-align: start;
-//     min-height: 100vh;
-// }
-
-
-.nosotros_equipo {
+#seccionValores {
     scroll-snap-align: start;
-    min-height: 100vh;
+    min-height: 60vh;
+}
+
+
+#seccionEquipo {
+     scroll-snap-align: start;
+    min-height: 60vh;
 }
 
 

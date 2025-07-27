@@ -655,14 +655,19 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
-.nosotros {
+#seccionNosotros {
   scroll-snap-align: start;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
-.nosotros_equipo {
+#seccionValores {
   scroll-snap-align: start;
-  min-height: 100vh;
+  min-height: 60vh;
+}
+
+#seccionEquipo {
+  scroll-snap-align: start;
+  min-height: 60vh;
 }
 
 .team-section .team-grid .team-member-card {
