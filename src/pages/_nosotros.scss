@@ -17,23 +17,7 @@
     min-height: 100vh;
 }
 
-// Asegúrate de que las variables necesarias estén disponibles aquí, o impórtalas.
-// @import 'path/to/your/variables'; // Ejemplo de importación si es necesario.
 
-$primary-color: #3B82F6; // Usando una variable ya definida para un color primario
-$secondary-color: #6c757d; // Un color secundario típico, si no tienes uno específico
-$metrics-title-color: #1A202C;
-$form-font-size-lg: 1.5rem;
-$font-weight-semibold: 600;
-$form-font-size-sm: 1rem;
-$font-weight-regular: 400;
-$form-font-size-xs: 0.875rem;
-$metric-description-color: #64748B;
-$form-spacing-md: 16px;
-$form-border-radius-lg: 20px;
-$metrics-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-$form-transition-ease: all 0.3s ease-in-out;
-$metrics-card-hover-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 
 
 .team-section {
@@ -43,10 +27,7 @@ $metrics-card-hover-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         // Bootstrap ya usa `display: flex;` y `flex-wrap: wrap;` en `.row` y `.col`
         // para asegurar que los elementos se distribuyan correctamente y se ajusten en altura.
 
-        .col {
-            // Aseguramos que la columna se estire para contener la tarjeta
-            // Bootstrap ya maneja esto bien con Flexbox en .row
-        }
+        // .col ruleset removed as it was empty and unnecessary
 
         .team-member-card {
             background-color: white; // Reemplaza con tu variable si es diferente

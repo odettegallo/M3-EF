@@ -16,6 +16,10 @@ body, html {
   scroll-snap-type: y mandatory;
 }
 
+p {
+  align-items: justify;
+}
+
 .carousel-section {
   width: 100%;
   height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
