@@ -671,7 +671,7 @@ p {
   min-height: 100%;
 }
 
-#seccionEquipo {
+#section__equipo {
   scroll-snap-align: start;
   min-height: 100%;
 }
