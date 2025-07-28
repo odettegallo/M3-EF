@@ -659,20 +659,21 @@ p {
 .main__section {
   padding-top: 50px;
   scroll-snap-align: start;
+  padding-top: 72px;
 }
-.main__section #seccionNosotros {
+.main__section #section__nosotros {
   scroll-snap-align: start;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
-#seccionValores {
+#section__valores {
   scroll-snap-align: start;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 #seccionEquipo {
   scroll-snap-align: start;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .team-section .team-grid .team-member-card {

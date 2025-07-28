@@ -5,26 +5,28 @@
 .main__section {
   padding-top: 50px;
       scroll-snap-align: start;
+          padding-top: $navbar-height; 
 
 
 
-#seccionNosotros {
+
+#section__nosotros {
 
     scroll-snap-align: start;
-    min-height: 100vh;
+    min-height: 100%;
 
 }
 }
 
-#seccionValores {
+#section__valores {
     scroll-snap-align: start;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 
 #seccionEquipo {
     scroll-snap-align: start;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 
