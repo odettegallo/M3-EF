@@ -1,20 +1,30 @@
 @use "../abstracts/variables" as *;
 @use "../base/estilo" as *;
+@use "../layout/navbar" as *;
+
+.main__section {
+  padding-top: 50px;
+      scroll-snap-align: start;
+
+
 
 #seccionNosotros {
-     scroll-snap-align: start;
-    min-height: 60vh;
+
+    scroll-snap-align: start;
+    min-height: 100vh;
+
+}
 }
 
 #seccionValores {
     scroll-snap-align: start;
-    min-height: 60vh;
+    min-height: 100vh;
 }
 
 
 #seccionEquipo {
-     scroll-snap-align: start;
-    min-height: 60vh;
+    scroll-snap-align: start;
+    min-height: 100vh;
 }
 
 

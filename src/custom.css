@@ -534,6 +534,7 @@ p {
 .navbar {
   background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 72px;
 }
 .navbar-brand .text-primary {
   color: #ffffff !important;
@@ -655,19 +656,23 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
-#seccionNosotros {
+.main__section {
+  padding-top: 50px;
   scroll-snap-align: start;
-  min-height: 60vh;
+}
+.main__section #seccionNosotros {
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 #seccionValores {
   scroll-snap-align: start;
-  min-height: 60vh;
+  min-height: 100vh;
 }
 
 #seccionEquipo {
   scroll-snap-align: start;
-  min-height: 60vh;
+  min-height: 100vh;
 }
 
 .team-section .team-grid .team-member-card {
