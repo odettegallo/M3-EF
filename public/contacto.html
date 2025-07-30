@@ -37,56 +37,64 @@
         </div>
     </nav>
 
-    <section class="contact__form-section contact-form-section">
-        <div class="contact__form-container contact-form-container">
-            <h3 class="contact__form-title contact-form__title">¡Envíanos un mensaje!</h3>
-            <p class="contact__form-description contact-form__description">Queremos saber de ti, por favor llena el
-                formulario a continuación.</p>
+    <main class="main">
+        <section class="main__section">
+            <section class="contact__form-section contact-form-section">
+                <div class="contact__form-container contact-form-container">
+                    <h3 class="contact__form-title contact-form__title">¡Envíanos un mensaje!</h3>
+                    <p class="contact__form-description contact-form__description">Queremos saber de ti, por favor llena
+                        el
+                        formulario a continuación.</p>
 
-            <form id="form__contact form-contact" action="#" method="POST" class="contact-form" novalidate>
-                <div class="form__group form-group">
-                    <label for="first-name" class="form__label form-label">Nombre</label>
-                    <input type="text" id="first-name" name="first_name" class="form__control form-control"
-                        placeholder="Tu primer nombre">
-                    <div id="errorName" class="form__invalid-feedback invalid-feedback"></div>
-                </div>
-
-                <div class="form__group form-group">
-                    <label for="last-name" class="form__label form-label">Apellido</label>
-                    <input type="text" id="last-name" name="last_name" class="form__control form-control" placeholder="Tu apellido">
-                    <div id="errorLastName" class="form__invalid-feedback invalid-feedback"></div>
-                </div>
-
-                <div class="form__group form-group">
-                    <label for="email" class="form__label form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form__control form-control" placeholder="tu.email@ejemplo.com">
-                    <div id="errorEmail" class="form__invalid-feedback invalid-feedback"></div>
-                </div>
-
-                <div class="form__group form-group">
-                    <label for="comment" class="form__label form-label">Comentario</label>
-                    <textarea id="comment" name="comment" class="form__control form-control" rows="5"
-                        placeholder="Tu mensaje aquí..."></textarea>
-                    <div id="errorMessage" class="form__invalid-feedback invalid-feedback"></div>
-                </div>
-
-                <button type="submit" class="form__submit-button submit-button">Enviar el mensaje</button>
-            </form>
-
-            <div class="form__toast-container toast-container position-fixed bottom-0 end-0 p-3">
-                <div id="liveToast" class="form__toast-alert toast text-bg-success border-0" role="alert" aria-live="assertive"
-                    aria-atomic="true">
-                    <div class="d-flex">
-                        <div class="form__toast-body toast-body">
-                            Guardado exitosamente.
+                    <form id="form__contact form-contact" action="#" method="POST" class="contact-form" novalidate>
+                        <div class="form__group form-group">
+                            <label for="first-name" class="form__label form-label">Nombre</label>
+                            <input type="text" id="first-name" name="first_name" class="form__control form-control"
+                                placeholder="Tu primer nombre">
+                            <div id="errorName" class="form__invalid-feedback invalid-feedback"></div>
                         </div>
-                        <button type="button" class="form__toast-btn btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
+
+                        <div class="form__group form-group">
+                            <label for="last-name" class="form__label form-label">Apellido</label>
+                            <input type="text" id="last-name" name="last_name" class="form__control form-control"
+                                placeholder="Tu apellido">
+                            <div id="errorLastName" class="form__invalid-feedback invalid-feedback"></div>
+                        </div>
+
+                        <div class="form__group form-group">
+                            <label for="email" class="form__label form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form__control form-control"
+                                placeholder="tu.email@ejemplo.com">
+                            <div id="errorEmail" class="form__invalid-feedback invalid-feedback"></div>
+                        </div>
+
+                        <div class="form__group form-group">
+                            <label for="comment" class="form__label form-label">Comentario</label>
+                            <textarea id="comment" name="comment" class="form__control form-control" rows="5"
+                                placeholder="Tu mensaje aquí..."></textarea>
+                            <div id="errorMessage" class="form__invalid-feedback invalid-feedback"></div>
+                        </div>
+
+                        <button type="submit" class="form__submit-button submit-button">Enviar el mensaje</button>
+                    </form>
+
+                    <div class="form__toast-container toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="form__toast-alert toast text-bg-success border-0" role="alert"
+                            aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="form__toast-body toast-body">
+                                    Guardado exitosamente.
+                                </div>
+                                <button type="button" class="form__toast-btn btn-close btn-close-white me-2 m-auto"
+                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </section>
+
+    </main>
 
     <footer class="footer">
         <div class="footer__container">
