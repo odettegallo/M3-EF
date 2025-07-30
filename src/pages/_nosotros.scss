@@ -1,20 +1,32 @@
 @use "../abstracts/variables" as *;
 @use "../base/estilo" as *;
+@use "../layout/navbar" as *;
 
-#seccionNosotros {
-     scroll-snap-align: start;
-    min-height: 60vh;
-}
+.main__section {
+  padding-top: 50px;
+      scroll-snap-align: start;
+          padding-top: $navbar-height; 
 
-#seccionValores {
+
+
+
+#section__nosotros {
+
     scroll-snap-align: start;
-    min-height: 60vh;
+    min-height: 100%;
+
+}
+}
+
+#section__valores {
+    scroll-snap-align: start;
+    min-height: 100%;
 }
 
 
-#seccionEquipo {
-     scroll-snap-align: start;
-    min-height: 60vh;
+#section__equipo {
+    scroll-snap-align: start;
+    min-height: 100%;
 }
 
 

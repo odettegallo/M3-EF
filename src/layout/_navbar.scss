@@ -1,10 +1,13 @@
 @use "../abstracts/variables" as *;
 @use "../base/estilo";
 
+$navbar-height: 72px;
+
 // Tu SCSS existente para .navbar
 .navbar {
     background: $navbar-bg-gradient;
     box-shadow: $navbar-shadow;
+    height: $navbar-height;
 
     // Anidamiento para .navbar-brand dentro de .navbar
     &-brand {
