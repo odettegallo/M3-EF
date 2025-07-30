@@ -1,2 +1,3 @@
 *.txt
 /src/copicustom.css
+node_modules/
