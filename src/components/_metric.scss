@@ -6,7 +6,7 @@
     font-family: $metrics-general-font; /* Fuente moderna y limpia para texto general usando variable */
     text-align: center;
     overflow: hidden; /* Asegura que no haya desbordamiento de contenido */
-  scroll-snap-align: start;
+    scroll-snap-align: start;
     min-height: 100vh;
 
     /* --- Estilos del Encabezado de la Sección --- */
