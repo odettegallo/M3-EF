@@ -1,0 +1,264 @@
+@use "../abstracts/variables" as *;
+
+// --- Mixins ---
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin form-section-base {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $form-spacing-xl $form-spacing-md;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  box-sizing: border-box;
+}
+
+@mixin card-like-container {
+  background: $metrics-bg-gradient;
+  border: $form-container-border-color;
+  border-radius: $form-border-radius-lg;
+  padding: $form-spacing-xl;
+  box-shadow: $form-container-shadow;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@mixin text-element-style($color, $font-family, $font-size, $font-weight, $line-height, $margin-bottom) {
+  color: $color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  margin-bottom: $margin-bottom;
+}
+
+@mixin form-group-layout($gap) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(50% - #{$gap / 2});
+    min-width: 260px;
+
+    &--full-width {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+@mixin form-control-base {
+  width: 100%;
+  padding: $form-spacing-xs $form-spacing-sm;
+  border: 1px solid $form-input-border-color;
+  border-radius: $form-border-radius-sm;
+  font-family: $metrics-general-font;
+  font-size: $form-font-size-base;
+  color: $form-text-color-dark;
+  background-color: $form-input-bg;
+  box-sizing: border-box;
+  transition: $form-transition-ease;
+
+  &::placeholder {
+    color: $form-placeholder-color;
+    font-weight: $font-weight-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $form-focus-border-color;
+    box-shadow: 0 0 0 3px rgba($form-focus-border-color, 0.2);
+    background-color: $form-container-bg;
+  }
+}
+
+@mixin submit-button-style {
+  background-color: $form-button-bg;
+  color: $form-button-text-color;
+  padding: $form-spacing-sm $form-spacing-lg;
+  border: none;
+  border-radius: $form-border-radius-sm;
+  cursor: pointer;
+  font-family: $metrics-general-font;
+  font-size: $form-font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: $form-transition-ease;
+  width: auto;
+  margin-top: $form-spacing-md;
+  align-self: flex-end;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background-color: darken($form-button-bg, 10%);
+    transform: translateY(-2px);
+    box-shadow: $form-button-shadow-hover;
+  }
+
+  &:active {
+    background-color: lighten($form-button-bg, 10%);
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+@mixin toast-position-and-style {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1080;
+
+  .toast {
+    background-color: rgba(33, 136, 56, 0.9);
+    color: $text-white;
+    border-radius: $form-border-radius-md;
+    box-shadow: $form-container-shadow;
+
+    .toast-body {
+      font-family: $metrics-general-font;
+      font-size: $form-font-size-base;
+    }
+
+    .btn-close-white {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+// --- Estilos Aplicados ---
+
+.contact-form-section {
+  @include form-section-base;
+}
+
+.contact-form-container {
+  @include card-like-container;
+
+  .contact-form__title {
+    @include text-element-style(
+      $form-text-color-dark,
+      $metrics-title-font,
+      $form-font-size-xxl,
+      $font-weight-bold,
+      1.2,
+      $form-spacing-sm
+    );
+  }
+
+  .contact-form__description {
+    @include text-element-style(
+      $form-text-color-light,
+      $metrics-general-font,
+      $form-font-size-base,
+      null, // No se especifica font-weight aquí, se deja null
+      1.6,
+      $form-spacing-xl
+    );
+  }
+}
+
+.contact-form {
+  @include form-group-layout($form-spacing-md);
+
+  .form-label {
+    display: block;
+    text-align: left;
+    margin-bottom: $form-spacing-xxs;
+    color: $form-text-color-dark;
+    font-family: $metrics-general-font;
+    font-size: $form-font-size-sm;
+    font-weight: $font-weight-regular;
+  }
+
+  .form-control {
+    @include form-control-base;
+  }
+
+  textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .invalid-feedback {
+    text-align: left;
+    font-size: $form-font-size-xs;
+    color: #dc3545;
+    margin-top: $form-spacing-xxs;
+  }
+}
+
+.submit-button {
+  @include submit-button-style;
+}
+
+.toast-container {
+  @include toast-position-and-style;
+}
+
+// --- Media Queries para la Responsividad del Formulario ---
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: $form-spacing-xl $form-spacing-md;
+  }
+
+  .contact-form .form-group {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+
+  .contact-form__title {
+    font-size: $form-font-size-xl;
+  }
+
+  .contact-form__description {
+    font-size: $form-font-size-sm;
+  }
+
+  .submit-button {
+    width: 100%;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-section {
+    padding: $form-spacing-md $form-spacing-sm;
+  }
+
+  .contact-form-container {
+    padding: $form-spacing-lg $form-spacing-md;
+    border-radius: $form-border-radius-none;
+    box-shadow: none;
+
+    .contact-form__title {
+      font-size: $form-font-size-lg;
+      margin-bottom: $form-spacing-xs;
+    }
+
+    .contact-form__description {
+      font-size: $form-font-size-sm;
+      margin-bottom: $form-spacing-md;
+    }
+  }
+
+  .contact-form {
+    gap: $form-spacing-sm;
+  }
+
+  .form-control {
+    padding: $form-spacing-xs;
+    font-size: $form-font-size-sm;
+  }
+
+  .submit-button {
+    padding: $form-spacing-sm $form-spacing-md;
+    font-size: $form-font-size-base;
+  }
+}

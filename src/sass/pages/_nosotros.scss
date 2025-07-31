@@ -2,33 +2,28 @@
 @use "../base/estilo" as *;
 @use "../layout/navbar" as *;
 
-.main__section {
-  padding-top: 50px;
-      scroll-snap-align: start;
-          padding-top: $navbar-height; 
-
-
-
-
-#section__nosotros {
-
-    scroll-snap-align: start;
-    min-height: 100%;
-
+@mixin scroll-section {
+  scroll-snap-align: start;
+  min-height: 100%;
 }
+
+.main__section {
+  padding-top: 50px; // This will be overridden by the next padding-top
+  scroll-snap-align: start; // This is also repeated, consider if it should be in the mixin too
+  padding-top: $navbar-height; 
+
+  #section__nosotros {
+    @include scroll-section;
+  }
 }
 
 #section__valores {
-    scroll-snap-align: start;
-    min-height: 100%;
+  @include scroll-section;
 }
-
 
 #section__equipo {
-    scroll-snap-align: start;
-    min-height: 100%;
+  @include scroll-section;
 }
-
 
 
 

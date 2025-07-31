@@ -1,0 +1,645 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Para evitar que el contenido quede oculto detrás del navbar fijo */
+body {
+    padding-top: 90px; /* Ajusta este valor si la altura de tu navbar varía */
+}
+
+/* --- Sección del Formulario de Contacto --- */
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px; /* Padding alrededor de la sección */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+.contact-form-container {
+    background-color: #b7ccaf; /* Fondo blanco */
+    border: 1px solid #6cac7c; /* Borde suave */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 30px; /* Espaciado interno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave para un efecto flotante */
+    max-width: 600px; /* Ancho máximo para el formulario */
+    width: 100%; /* El formulario ocupa todo el ancho hasta el max-width */
+    box-sizing: border-box;
+    text-align: center; /* Centra el título y la descripción */
+}
+
+.contact-form__title {
+    color: #171212;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-form__description {
+    color: #876363;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* --- Estilos del Formulario en sí --- */
+.contact-form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 20px; /* Espacio entre los grupos de formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(50% - 10px); /* 2 columnas por defecto (10px es la mitad del gap) */
+    min-width: 280px; /* Asegura que los campos no se hagan demasiado pequeños */
+}
+
+.form-group--full-width {
+    flex: 1 1 100%; /* Ocupa todo el ancho disponible */
+}
+
+.form-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #171212;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #D1D5DB; /* Borde gris suave */
+    border-radius: 6px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    color: #374151; /* Texto oscuro para buena legibilidad */
+    background-color: #F9FAFB; /* Fondo muy claro para los campos */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #9CA3AF; /* Color del placeholder */
+    font-weight: 300;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #6C7A89; /* Borde ligeramente más oscuro al enfocar */
+    box-shadow: 0 0 0 3px rgba(108, 122, 137, 0.2); /* Sombra sutil al enfocar */
+}
+
+.form-textarea {
+    resize: vertical; /* Permite al usuario ajustar la altura del textarea */
+    min-height: 100px; /* Altura mínima para el comentario */
+}
+
+/* --- Estilos del Botón de Enviar --- */
+.submit-button {
+    background-color: #374151; /* Color de fondo oscuro y neutro */
+    color: #FFFFFF; /* Texto blanco */
+    padding: 14px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Ancho automático según el contenido */
+    margin-top: 10px; /* Espacio superior */
+    align-self: center; /* Centrar el botón dentro del formulario flex */
+}
+
+.submit-button:hover {
+    background-color: #171212; /* Color ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+.submit-button:active {
+    background-color: #000000;
+    transform: translateY(0);
+}
+
+/* --- Media Queries para la Responsividad del Formulario --- */
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 25px;
+    }
+
+    .form-group {
+        flex: 1 1 100%; /* Todos los campos a una sola columna en móviles */
+        min-width: unset; /* Reinicia el min-width */
+    }
+
+    .contact-form__title {
+        font-size: 24px;
+    }
+
+    .contact-form__description {
+        font-size: 15px;
+    }
+
+    .submit-button {
+        width: 100%; /* Botón al 100% de ancho en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-container {
+        padding: 20px 15px;
+        border-radius: 0; /* Quita el redondeado en pantallas muy pequeñas si prefieres */
+        box-shadow: none; /* Quita la sombra en pantallas muy pequeñas */
+    }
+
+    .contact-form__title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .contact-form__description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+}
+
+
+.navbar {
+    /* Fondo con gradiente fresco y juvenil */
+    background: linear-gradient(to right, #6EE7B7 0%, #3B82F6 100%); /* Verde menta a azul vibrante */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para un look moderno */
+}
+
+.navbar-brand .text-primary {
+    color: #ffffff !important; /* Texto del logo en blanco para un buen contraste */
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna y legible */
+    font-size: clamp(1.2rem, 1.8vw + 0.5rem, 2.2rem) !important; /* Tamaño de fuente responsivo para el logo */
+    font-weight: 700; /* Negrita para destacar */
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna para los enlaces */
+    font-size: clamp(0.9rem, 1.2vw + 0.2rem, 1.3rem); /* Tamaño de fuente responsivo para los enlaces (aprox. 20% más grande) */
+    font-weight: 600; /* Semi-negrita */
+    color: rgba(255, 255, 255, 0.9); /* Color de texto blanco casi puro */
+    transition: color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    background-color: transparent;
+    margin: 0 18px; /* Espaciado ajustado entre enlaces */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #000000 !important; /* Texto oscuro en hover para un contraste llamativo */
+    transform: translateY(-3px); /* Efecto de elevación sutil */
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Sombra de texto suave */
+}
+
+/* Ajustes para el botón del toggle en móviles */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+ /* General reset for body/html to allow full viewport height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+
+}
+
+/* Styles for the entire carousel section */
+.carousel-section {
+    width: 100%;
+    height: 100vh; /* Makes the carousel take up the full viewport height */
+    overflow: hidden; /* Important to prevent image overflow */
+    position: relative; /* Needed for absolute positioning of overlays if any */
+    
+}
+
+/* Ensures the carousel, inner, and items fill their parent */
+#carouselExampleAutoplaying,
+.carousel-inner,
+.carousel-item {
+    width: 100%;
+    height: 100%; 
+}
+
+/* Styles for the carousel images */
+.carousel-img {
+    width: 100%;
+    height: 100%; /* Images should fill the item */
+    object-fit: cover; /* Crops images to cover the area without distortion */
+filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al color */
+    transition: filter 0.5s ease-in-out;}
+
+/* Styles for the content container within the carousel (text and button) */
+.carousel-caption {
+    /* Bootstrap's default positioning is absolute. Adjust its size and centering */
+    position: absolute; /* Ensures it overlays */
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    display: flex; /* Uses flexbox to center content */
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    text-align: center; /* Centers the text */
+    padding: 20px; /* General padding for the content */
+    z-index: 10; /* Ensures it's above the image */
+}
+
+/* Specific styles for the div containing the text and button */
+.contact-content-carousel {
+    max-width: 750px; /* Ancho máximo para legibilidad */
+    padding: 35px 45px; /* Más padding para un look más "premium" */
+    border-radius: 20px; /* Bordes más redondeados para un toque juvenil */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco con alta opacidad */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada y suave */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque "glassmorphism" */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
+    color: #333; /* Color de texto oscuro para contraste */
+    animation: fadeInScale 0.8s ease-out forwards; /* Animación de entrada */
+}
+
+.contact-content-carousel h2 {
+    color: #343a40; /* Darker color for the main title */
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.contact-content-carousel p {
+    color: #363a3e; /* Gray color for the paragraph */
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-button-carousel {
+    display: inline-block;
+    background-color: #6200ff; /* Your vibrant color */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Remove any default border */
+}
+
+.contact-button-carousel:hover {
+    background-color: #4a00cb; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .contact-content-carousel h2 {
+        font-size: 2.2em;
+    }
+    .contact-content-carousel p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 15px;
+    }
+    .contact-content-carousel {
+        padding: 25px;
+        max-width: 90%; /* Allows it to take up more space on smaller screens */
+    }
+    .contact-content-carousel h2 {
+        font-size: 1.8em;
+    }
+    .contact-content-carousel p {
+        font-size: 1em;
+    }
+    .contact-button-carousel {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .carousel-img {
+        filter: brightness(50%); /* Darken image further for better contrast on small screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-content-carousel {
+        padding: 20px;
+    }
+    .contact-content-carousel h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .contact-content-carousel p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .contact-button-carousel {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+
+/* Estilos para el nuevo contenedor del título y subtítulo */
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap');
+
+/* --- General Metrics Section Styles --- */
+.metrics {
+    padding: 80px 20px; /* Maintains general vertical spacing */
+    /* Fresh and energetic background gradient */
+    background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%);
+    font-family: 'Outfit', sans-serif; /* Modern, clean font for general text */
+    text-align: center;
+    overflow: hidden; /* Ensures no content overflow */
+}
+
+/* --- Section Header Styles --- */
+.metrics-header {
+    margin-bottom: 60px; /* Spacing between header and metric cards */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.metrics-header .metrics-title {
+    font-family: 'Inter', sans-serif; /* Bold and impactful font for the main title */
+    font-size: clamp(2.2rem, 4vw + 0.5rem, 1.8rem); /* Responsive font size */
+    color: #1A202C; /* Dark, strong color for contrast */
+    margin-bottom: 20px;
+    font-weight: 900; /* Extra bold for emphasis */
+    line-height: 1.2;
+    letter-spacing: -0.8px; /* Slightly tighter spacing for a modern look */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+}
+
+.metrics-header .metrics-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2 rem; /* Responsive font size */
+    color: #4A5568; /* Softer dark gray */
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Metrics Grid Container --- */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid layout */
+    gap: 30px; /* Space between cards, maintaining size */
+    max-width: 1200px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+    padding: 0 20px;
+}
+
+/* --- Metric Card Styles --- */
+.metric-card {
+    background-color: #ffffff; /* Clean white background */
+    padding: 35px; /* Ample padding to maintain size */
+    border-radius: 20px; /* More rounded borders for a youthful look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Pronounced, soft shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* Smooth, appealing transition for hover effects */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden; /* Important for the dynamic background effect */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Subtle white border for a clean edge */
+}
+
+.metric-card:hover {
+    transform: translateY(-10px) scale(1.03); /* More noticeable lift and slight scale */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    z-index: 1; /* Ensures the hovered card is on top */
+}
+
+/* Dynamic background effect on hover (Wave/Splash) */
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Energetic gradient for the hover effect */
+    background: linear-gradient(135deg, #A78BFA 0%, #F472B6 100%); /* Purple to Pink */
+    border-radius: 20px;
+    z-index: -1; /* Behind the content */
+    transform: scale(0); /* Hidden initially */
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out; /* Bouncy transition */
+}
+
+.metric-card:hover::before {
+    transform: scale(1.1); /* Expands beyond card slightly for a full-bleed effect */
+    opacity: 1;
+}
+
+/* --- Metric Numbers (h3) --- */
+.metric-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8 rem; /* Large, impactful, and responsive */
+    color: #4C51BF; /* Vibrant purple-blue */
+    margin-bottom: 12px;
+    font-weight: 900; /* Extra bold */
+    position: relative;
+    z-index: 2; /* Ensures text is above the pseudo-element */
+    transition: color 0.3s ease;
+}
+
+.metric-card:hover h3 {
+    color: #ffffff; /* White on hover for stark contrast */
+}
+
+/* --- Metric Title (p.metric-title) --- */
+.metric-card .metric-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.3rem); /* Responsive, readable size */
+    color: #334155; /* Dark gray for good readability */
+    font-weight: 700; /* Bold */
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.metric-card:hover .metric-title {
+    color: #ffffff; /* White on hover */
+}
+
+/* --- Metric Description (p.metric-description) --- */
+.metric-card .metric-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem); /* Responsive, clear description */
+    color: #64748B; /* Softer gray */
+    line-height: 1.6;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.metric-card:hover .metric-description {
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white on hover */
+}
+
+/* --- Media Queries for Responsiveness (Adjusted for new styles) --- */
+@media (max-width: 992px) {
+    .metrics-header {
+        margin-bottom: 40px;
+    }
+    .metrics-grid {
+        gap: 25px;
+    }
+    .metric-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .metrics {
+        padding: 60px 15px;
+    }
+    .metrics-header .metrics-title {
+        font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3.2rem);
+    }
+    .metrics-header .metrics-subtitle {
+        font-size: clamp(0.95rem, 1.5vw + 0.2rem, 1.2rem);
+    }
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .metric-card {
+        padding: 25px;
+    }
+    .metric-card h3 {
+        font-size: clamp(2.5rem, 4vw + 0.5rem, 3.8rem);
+    }
+    .metric-card .metric-title {
+        font-size: clamp(1rem, 1.3vw + 0.1rem, 1.2rem);
+    }
+    .metric-card .metric-description {
+        font-size: clamp(0.8rem, 1vw + 0.1rem, 0.95rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .metrics {
+        padding: 40px 10px;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        max-width: 400px; /* Limit width to prevent stretching */
+        margin: 0 auto;
+    }
+    .metric-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .metric-card h3 {
+        font-size: clamp(2.2rem, 3.5vw + 0.5rem, 3.5rem);
+    }
+}
+
+
+.footer {
+  display: flex;
+justify-content: center;
+align-items: flex-start;
+align-self: stretch;
+margin-left: 160px;
+margin-right: 160px;
+}
+
+.footer__container {
+display: flex;
+padding: 40px 20px;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+flex: 1 0 0;
+align-self: stretch;
+}
+
+.footer__links {
+  display: flex;
+justify-content: space-between;
+align-items:first baseline;
+align-content: center;
+row-gap: 24px;
+align-self: stretch;
+flex-wrap: wrap;
+}
+
+.footer__link {
+  display: flex;
+  width: 160px;
+  min-width: 160px;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__link-title {
+  width: 100%;
+  color: #876363;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400 !important;
+  line-height: 24px;
+}
+.íconos__footer {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; */
+    display: flex;
+    justify-content: right;
+    align-items: inherit;
+    align-content: inherit;
+    gap: 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    margin: 0px 30px 44px 20px;
+}
+.footer__copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.footer__copyright-text {
+  width: 100%;
+  color: #876363;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400 !important;
+  line-height: 24px;
+}

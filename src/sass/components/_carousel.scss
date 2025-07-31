@@ -1,0 +1,150 @@
+@use "../abstracts/variables" as *;
+
+// --- Mixins ---
+@mixin fluid-fill {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin carousel-image-style {
+  @include fluid-fill;
+  object-fit: cover;
+  filter: brightness(55%) saturate(110%);
+  transition: filter 0.5s ease-in-out;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center; // Centra verticalmente
+  justify-content: center; // Centra horizontalmente
+}
+
+@mixin responsive-text($h2-font-size, $h2-margin-bottom, $p-font-size, $p-margin-bottom: null) {
+  h2 {
+    font-size: $h2-font-size;
+    margin-bottom: $h2-margin-bottom;
+  }
+  p {
+    font-size: $p-font-size;
+    @if $p-margin-bottom {
+      margin-bottom: $p-margin-bottom;
+    }
+  }
+}
+
+@mixin button-style {
+  display: inline-block;
+  background-color: $carousel-button-color;
+  color: $text-white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  font-family: $link-font;
+
+  &:hover {
+    background-color: $carousel-button-hover-color;
+    transform: translateY(-2px);
+  }
+}
+
+// --- Styles ---
+.carousel-section {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  min-height: 60vh;
+}
+
+#carouselExampleAutoplaying,
+.carousel-inner,
+.carousel-item {
+  @include fluid-fill;
+}
+
+.carousel-img {
+  @include carousel-image-style;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  @include flex-center;
+  text-align: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.contact-content-carousel {
+  max-width: 750px;
+  padding: 35px 45px;
+  border-radius: 20px;
+  background-color: $carousel-overlay-bg;
+  box-shadow: $carousel-content-shadow;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: $carousel-text-dark;
+  animation: fadeInScale 0.8s ease-out forwards;
+
+  // Base text styles
+  h2 {
+    color: $carousel-heading-color;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: $logo-font;
+  }
+  p {
+    color: $carousel-paragraph-color;
+    line-height: 1.6;
+    font-family: $link-font;
+  }
+
+  // Base font sizes and margins
+  @include responsive-text(2.8em, 20px, 1.2em, 30px);
+}
+
+.contact-button-carousel {
+  @include button-style;
+}
+
+// --- Media Queries for Responsiveness ---
+@media (max-width: 992px) {
+  .contact-content-carousel {
+    @include responsive-text(2.2em, 20px, 1.1em, 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 15px;
+  }
+  .contact-content-carousel {
+    padding: 25px;
+    max-width: 90%;
+    @include responsive-text(1.8em, 20px, 1em, 30px);
+  }
+  .contact-button-carousel {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+  .carousel-img {
+    filter: brightness(50%);
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-content-carousel {
+    padding: 20px;
+    @include responsive-text(1.5em, 15px, 0.9em, 20px);
+  }
+  .contact-button-carousel {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}

@@ -22,14 +22,13 @@ p {
 
 .carousel-section {
   width: 100%;
-  height: 100vh; /* Hace que el carrusel ocupe la altura completa del viewport */
-  overflow: hidden; /* Importante para evitar el desbordamiento de la imagen */
-  position: relative; /* Necesario para el posicionamiento absoluto de las superposiciones */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
   scroll-snap-align: start;
   min-height: 60vh;
 }
 
-/* Asegura que el carrusel, inner y los items llenen su padre */
 #carouselExampleAutoplaying,
 .carousel-inner,
 .carousel-item {
@@ -37,81 +36,83 @@ p {
   height: 100%;
 }
 
-/* Estilos para las imágenes del carrusel */
 .carousel-img {
   width: 100%;
-  height: 100%; /* Las imágenes deben llenar el item */
-  object-fit: cover; /* Recorta las imágenes para cubrir el área sin distorsión */
-  filter: brightness(55%) saturate(110%); /* Oscurece y da un poco más de vida al color */
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%) saturate(110%);
   transition: filter 0.5s ease-in-out;
 }
 
-/* Estilos para el contenedor de contenido dentro del carrusel (texto y botón) */
 .carousel-caption {
-  /* El posicionamiento predeterminado de Bootstrap es absoluto. Ajustar su tamaño y centrado */
-  position: absolute; /* Asegura que se superponga */
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  display: flex; /* Usa flexbox para centrar el contenido */
-  align-items: center; /* Centra verticalmente */
-  justify-content: center; /* Centra horizontalmente */
-  text-align: center; /* Centra el texto */
-  padding: 20px; /* Relleno general para el contenido */
-  z-index: 10; /* Asegura que esté por encima de la imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 10;
 }
 
-/* Estilos específicos para el div que contiene el texto y el botón */
 .contact-content-carousel {
-  max-width: 750px; /* Ancho máximo para legibilidad */
-  padding: 35px 45px; /* Más padding para un look más "premium" */
-  border-radius: 20px; /* Bordes más redondeados para un toque juvenil */
-  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco con alta opacidad usando variable */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada y suave usando variable */
-  backdrop-filter: blur(8px); /* Efecto de desenfoque "glassmorphism" */
-  -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
-  color: #333; /* Color de texto oscuro para contraste usando variable */
-  animation: fadeInScale 0.8s ease-out forwards; /* Animación de entrada */
+  max-width: 750px;
+  padding: 35px 45px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #333;
+  animation: fadeInScale 0.8s ease-out forwards;
 }
 .contact-content-carousel h2 {
-  color: #343a40; /* Color más oscuro para el título principal usando variable */
-  font-size: 2.8em;
-  margin-bottom: 20px;
+  color: #343a40;
   font-weight: bold;
   line-height: 1.2;
   font-family: "Montserrat", sans-serif;
 }
 .contact-content-carousel p {
-  color: #363a3e; /* Color gris para el párrafo usando variable */
-  font-size: 1.2em;
+  color: #363a3e;
   line-height: 1.6;
-  margin-bottom: 30px;
   font-family: "Montserrat", sans-serif;
+}
+.contact-content-carousel h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+}
+.contact-content-carousel p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 .contact-button-carousel {
   display: inline-block;
-  background-color: #3B82F6; /* Tu color vibrante usando variable */
+  background-color: #3B82F6;
   color: #ffffff;
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 5px;
   font-size: 1.1em;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  border: none; /* Elimina cualquier borde predeterminado */
+  border: none;
   font-family: "Montserrat", sans-serif;
 }
 .contact-button-carousel:hover {
-  background-color: #2a61c4; /* Azul más oscuro al pasar el ratón usando variable */
-  transform: translateY(-2px); /* Ligero efecto de elevación al pasar el ratón */
+  background-color: #2a61c4;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 992px) {
   .contact-content-carousel h2 {
     font-size: 2.2em;
+    margin-bottom: 20px;
   }
   .contact-content-carousel p {
     font-size: 1.1em;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 768px) {
@@ -120,20 +121,22 @@ p {
   }
   .contact-content-carousel {
     padding: 25px;
-    max-width: 90%; /* Permite que ocupe más espacio en pantallas más pequeñas */
+    max-width: 90%;
   }
   .contact-content-carousel h2 {
     font-size: 1.8em;
+    margin-bottom: 20px;
   }
   .contact-content-carousel p {
     font-size: 1em;
+    margin-bottom: 30px;
   }
   .contact-button-carousel {
     padding: 12px 25px;
     font-size: 1em;
   }
   .carousel-img {
-    filter: brightness(50%); /* Oscurece la imagen aún más para un mejor contraste en pantallas pequeñas */
+    filter: brightness(50%);
   }
 }
 @media (max-width: 576px) {
@@ -164,7 +167,7 @@ p {
 }
 
 .contact-form-container {
-  background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%); /* Gradiente de fondo fresco y energético usando variable */
+  background: linear-gradient(135deg, #E0F2FE 0%, #CCEBFD 100%);
   border: #e0e0e0;
   border-radius: 20px;
   padding: 32px;
@@ -179,8 +182,8 @@ p {
   font-family: "Inter", sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 12px;
   line-height: 1.2;
+  margin-bottom: 12px;
 }
 .contact-form-container .contact-form__description {
   color: #4A5568;
@@ -190,7 +193,6 @@ p {
   margin-bottom: 32px;
 }
 
-/* --- Estilos del Formulario en sí --- */
 .contact-form {
   display: flex;
   flex-wrap: wrap;
@@ -247,7 +249,6 @@ p {
   margin-top: 4px;
 }
 
-/* --- Estilos del Botón de Enviar --- */
 .submit-button {
   background-color: #3B82F6;
   color: #ffffff;
@@ -275,7 +276,6 @@ p {
   box-shadow: none;
 }
 
-/* --- Estilos del Toast de Bootstrap --- */
 .toast-container {
   position: fixed !important;
   top: 50% !important;
@@ -297,7 +297,6 @@ p {
   filter: brightness(0) invert(1);
 }
 
-/* --- Media Queries para la Responsividad del Formulario --- */
 @media (max-width: 768px) {
   .contact-form-container {
     padding: 32px 16px;

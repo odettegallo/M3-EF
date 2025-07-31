@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/custom.css">
+    <link rel="stylesheet" href="../src/sass/custom.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"> async</script>
-    <script src="js/form.js"> async</script>
+    <script src="../src/js/form.js"> async</script>
 
 
     <title>TechDesign Solutions</title>
@@ -46,7 +46,9 @@
                         el
                         formulario a continuación.</p>
 
-                    <form id="form__contact form-contact" action="#" method="POST" class="contact-form" novalidate>
+                    <form id="form-contact" action="#" method="POST" class="contact-form" novalidate>
+                    <!-- <form id="form__contact form-contact" action="#" method="POST" class="contact-form" novalidate> -->
+                        <!-- para que funcione el form.js tengo que dejar una sola id and class sino me genera conflicto por eso no cambiué el id y la class del form a form__contact -->
                         <div class="form__group form-group">
                             <label for="first-name" class="form__label form-label">Nombre</label>
                             <input type="text" id="first-name" name="first_name" class="form__control form-control"
